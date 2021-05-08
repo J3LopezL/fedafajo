@@ -16,42 +16,50 @@ describe("Create Tag", () => {
   it("Create Valid Tag", async () => {
     await tagPage.createTag(page, {
       tagName: "Tag completo",
-      tagSlug: "tagCompleto",
+      tagSlug: "tag-completo",
       tagDescription: "Descripción de un tag completo",
     });
     await expect(page).toMatch("Saved");
+    await tagPage.listTags(page);
+    await expect(page).toMatch("tag-completo");
   });
 
   it("Create Tag with space in the name", async () => {
     await tagPage.createTag(page, {
       tagName: "     ",
-      tagSlug: "tagConEspacios",
+      tagSlug: "tag-con-espacios",
       tagDescription: "Descripción de un tag con espacios en el nombre",
     });
     await expect(page).toMatch("You must specify a name for the tag.");
     await tagPage.discardChanges(page);
+    await tagPage.listTags(page);
+    await expect(page).not.toMatch("tag-con-espacios");
   });
 
   it("Create Tag with empty name", async () => {
     await tagPage.createTag(page, {
       tagName: "",
-      tagSlug: "",
-      tagDescription: "Descripción de un tag vacío",
+      tagSlug: "tag-vacio",
+      tagDescription: "",
     });
     await expect(page).toMatch("You must specify a name for the tag.");
     await tagPage.discardChanges(page);
+    await tagPage.listTags(page);
+    await expect(page).not.toMatch("tag-vacio");
   });
 
   it("Create Tag with invalid description", async () => {
     await tagPage.createTag(page, {
       tagName: "Tag con descripción inválida",
-      tagSlug: "tagDescripcionInvalida",
-      tagDescription: faker.lorem.paragraph(20),
+      tagSlug: "tag-descripcion-invalida",
+      tagDescription: faker.lorem.paragraph(30),
     });
     await expect(page).toMatch(
       "Description cannot be longer than 500 characters."
     );
     await tagPage.discardChanges(page);
+    await tagPage.listTags(page);
+    await expect(page).not.toMatch("tag-descripcion-invalida");
   });
 
   // describe('onboarding', () => {

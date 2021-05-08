@@ -14,7 +14,13 @@ async function discardChanges(page) {
   await new Promise((r) => setTimeout(r, 2000));
 }
 
+async function listTags(page) {
+  await page.click('a[href="#/tags/"]');
+  await new Promise((r) => setTimeout(r, 2000));
+}
+
 module.exports = {
   createTag,
   discardChanges,
+  listTags,
 };
