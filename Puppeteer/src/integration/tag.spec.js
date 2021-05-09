@@ -1,12 +1,13 @@
 const navigationPage = require("../page-objects/navigation-page");
 const tagPage = require("../page-objects/tag-page");
 const faker = require("faker");
+const config = require("../credentials");
 
 describe("Create Tag", () => {
   beforeEach(async () => {
     jest.setTimeout(50000);
     await navigationPage.navigate(page);
-    await navigationPage.login(page, "test@ghost.com", "123456abc*");
+    await navigationPage.login(page, config.user, config.password);
   });
 
   afterEach(async () => {
@@ -24,7 +25,7 @@ describe("Create Tag", () => {
     await expect(page).toMatch("tag-completo");
   });
 
-  it("Create Tag with space in the name", async () => {
+  it.only("Create Tag with space in the name", async () => {
     await tagPage.createTag(page, {
       tagName: "     ",
       tagSlug: "tag-con-espacios",
