@@ -3,13 +3,13 @@ Feature: Tag creation
   @user1 @web
   Scenario: As a user I want to create a new (valid) Tag
     # Login
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "http://localhost:3001/ghost/"
     Then I enter "test@ghost.com" into input field having id "ember8"
     Then I enter "123456abc*" into input field having id "ember10"
     Then I click on element having id "ember12"
 
     # Execute createTag
-    Then I click on element having id "ember31"
+    Then I click on element having css selector "[href^='#/tags/']"
     Then I click on element having css selector ".ember-view.gh-btn.gh-btn-green"
     Then I enter "Tag completo" into input field having id "tag-name"
     Then I enter "tag-completo" into input field having id "tag-slug"
@@ -32,13 +32,13 @@ Feature: Tag creation
   @user2 @web
   Scenario: As a user I want to create a new (invalid - name with spaces) Tag
     # Login
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "http://localhost:3001/ghost/"
     Then I enter "test@ghost.com" into input field having id "ember8"
     Then I enter "123456abc*" into input field having id "ember10"
     Then I click on element having id "ember12"
 
     # Execute createTag
-    Then I click on element having id "ember31"
+    Then I click on element having css selector "[href^='#/tags/']"
     Then I click on element having css selector ".ember-view.gh-btn.gh-btn-green"
     Then I enter "     " into input field having id "tag-name"
     Then I enter "tag-con-espacios" into input field having id "tag-slug"
@@ -49,7 +49,7 @@ Feature: Tag creation
     Then I should see text "You must specify a name for the tag."
 
     # Execute discardChanges
-    Then I re-navigate to page "http://localhost:2368/ghost/#/tags/new"
+    Then I re-navigate to page "http://localhost:3001/ghost/#/tags/new"
 
     # Execute listTags
     Then I click on element having css selector "[href^='#/tags/']"
@@ -64,13 +64,13 @@ Feature: Tag creation
   @user3 @web
   Scenario: As a user I want to create a new (invalid - empty name) Tag
     # Login
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "http://localhost:3001/ghost/"
     Then I enter "test@ghost.com" into input field having id "ember8"
     Then I enter "123456abc*" into input field having id "ember10"
     Then I click on element having id "ember12"
 
     # Execute createTag
-    Then I click on element having id "ember31"
+    Then I click on element having css selector "[href^='#/tags/']"
     Then I click on element having css selector ".ember-view.gh-btn.gh-btn-green"
     Then I enter "" into input field having id "tag-name"
     Then I enter "tag-vacio" into input field having id "tag-slug"
@@ -81,7 +81,7 @@ Feature: Tag creation
     Then I should see text "You must specify a name for the tag."
 
     # Execute discardChanges
-    Then I re-navigate to page "http://localhost:2368/ghost/#/tags/new"
+    Then I re-navigate to page "http://localhost:3001/ghost/#/tags/new"
 
     # Execute listTags
     Then I click on element having css selector "[href^='#/tags/']"
@@ -96,13 +96,13 @@ Feature: Tag creation
   @user4 @web
   Scenario: As a user I want to create a new (invalid - long description) Tag
     # Login
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "http://localhost:3001/ghost/"
     Then I enter "test@ghost.com" into input field having id "ember8"
     Then I enter "123456abc*" into input field having id "ember10"
     Then I click on element having id "ember12"
 
     # Execute createTag
-    Then I click on element having id "ember31"
+    Then I click on element having css selector "[href^='#/tags/']"
     Then I click on element having css selector ".ember-view.gh-btn.gh-btn-green"
     Then I enter "Tag con descripción inválida" into input field having id "tag-name"
     Then I enter "tag-descripcion-invalida" into input field having id "tag-slug"
@@ -113,7 +113,7 @@ Feature: Tag creation
     Then I should see text "You must specify a name for the tag."
 
     # Execute discardChanges
-    Then I re-navigate to page "http://localhost:2368/ghost/#/tags/new"
+    Then I re-navigate to page "http://localhost:3001/ghost/#/tags/new"
 
     # Execute listTags
     Then I click on element having css selector "[href^='#/tags/']"

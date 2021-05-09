@@ -16,6 +16,14 @@ Given(/^I navigate to page "([^\"]*)"$/) do |web_url|
   sleep 2
 end
 
+Then(/^I re-navigate to page "([^\"]*)"$/) do |web_url|
+  raise 'ERROR: Invalid URL' if web_url.nil?
+  raise 'ERROR: Invalid URL' unless web_url =~ URI::DEFAULT_PARSER.make_regexp
+
+  @driver.navigate.to web_url
+  sleep 2
+end
+
 Then(/^I enter "([^\"]*)" into input field having id "([^\"]*)"$/) do |text, id|
   @driver.find_element(:id, id).send_keys(text)
   sleep 2
@@ -45,6 +53,10 @@ end
 
 Then(/^I should see text "(.*?)"$/) do |text|
   @driver.page_source.include?(text)
+end
+
+Then(/^I should not see text "(.*?)"$/) do |text|
+  raise 'ERROR: Text does exists' if @driver.page_source.include?(text)
 end
 
 Then(/^I click on element having css selector "(.*?)"$/) do |selector|

@@ -1,4 +1,7 @@
-async function createUser(page, { blogTitle, blogName, blogEmail, blogPassword }) {
+async function createUser(
+  page,
+  { blogTitle, blogName, blogEmail, blogPassword }
+) {
   await page.click('a[href="#/setup/two/"]');
   await page.type('input[id="blog-title"]', blogTitle);
   await page.type('input[id="name"]', blogName);
@@ -11,7 +14,7 @@ async function createUser(page, { blogTitle, blogName, blogEmail, blogPassword }
 }
 
 async function createTag(page, { tagName, tagSlug, tagDescription }) {
-  await page.click('a[id="ember31"]');
+  await page.click('a[href="#/tags/"]');
   await page.waitForNavigation();
   await page.click(".ember-view.gh-btn.gh-btn-green");
   await page.type('input[id="tag-name"]', tagName);
