@@ -21,6 +21,8 @@ describe("Manager user", () => {
       await navigationPage.login(page, "jose@ghost.com", "Miso2021!");
       await expect(page).not.toMatch("jose@ghost");
       await expect(page).toMatch(/Acces.*/);
+      await userPage.clicsLogin(page);
+      await expect(page).toMatch(/Too.*/);
     });
   
     it("Login Valid", async () => {
