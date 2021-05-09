@@ -42,6 +42,31 @@ TODO: comandos de preparación en Kraken
 
 ### 1. Inicio de sesión
 
+#### 1.1. Iniciar sesión con un usuario en blanco y clave.
+
+Descripción: en este escenario, se quiere inciar sesión en Ghost con un usuario en blanco y utilizando una contraseña alfanumerica con un caracter especial, para lo cual se omite el campo del usuario y procede a llenar el campo de la clave y hacer clic en el boton de login o Sing in.
+ 
+Resultados esperados: se espera que la aplicación no permita el acceso e informe al usuario. En la pantalla se observa que el botón cambia a color rojo y cambia el nombre por reintertar (Retry) y despliega un aviso en letra de color rojo, solicitando que se llene el formulario de inicio.
+
+#### 1.2. Iniciar sesión con un usuario esperado y clave en blanco.
+
+Descripción: en este escenario, se quiere inciar sesión en Ghost con un usuario aparentemente valido y dejando la contraseña en blanco, para lo cual solo se llena el campo correspondiente al usuario y se hace clic en el boton de login o Sing in.
+ 
+Resultados esperados: se espera que la aplicación no permita el acceso e informe al usuario. En la pantalla se observa el mismo comportamiento que el escenario anterior, el botón cambia a color rojo y se etiqueta reintertar (Retry) y despliega un aviso en letra de color rojo, solicitando que se llene el formulario de inicio.
+
+#### 1.3. Iniciar sesión con un usuario esperado y una clave.
+
+Descripción: en este escenario, se quiere inciar sesión en Ghost con un usuario aparentemente valido que no ha sido registrado y una contraseña alfanumerica con un caracter espeicla, para lo cual solo se llena el campo correspondiente al usuario tipo cuante de correo electrónico y una clave con letras mayúsculas, minúsculas, un número y un caracter espcial y se hace clic en el boton de login o Sing in.
+ 
+Resultados esperados: se espera que la aplicación no permita el acceso e informe al usuario ya que no esta registrado en el sistema. En la pantalla se observa que en el botton del login aparece una animación de procesando, despliega un aviso en letra de color rojo informando que se ha negado el acceso, al hacer nuevamente clic en el inicio de sesión sin cambiar los datos el aviso cambia a muchos intentos de login.
+
+#### 1.4. Iniciar sesión con un usuario y clave validos.
+
+Descripción: en este escenario, se quiere inciar sesión en Ghost con un usuario y contraseña validos y que esta registrado en la aplicación, para lo cual solo se llena el campo correspondiente al usuario y la clave con los datos registrados con anterioridad y se hace clic en el boton de login o Sing in.
+ 
+Resultados esperados: se espera que la aplicación permita elñ ingreso y habilite las funcionalidades del administrador. Se observa que al hacer clic cambia la pantalla a la sección del administrador de contenidos, se pueden observar los menús de gestion de contenido y en la parte inferior izquierda el usuario que esta logeado, se finaliza el escenario cerrando la sesión del administrador.
+
+
 ### 2. Crear Post
 
 ### 3. Crear Page
