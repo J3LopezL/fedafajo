@@ -13,13 +13,16 @@ Repositorio pruebas E2E MISO 2021.
 
 ## Configuración del ambiente de ejecución
 
+Prerequisitos:
+- Instalar la última versión de Docker desde https://www.docker.com/get-started
+
 ### 1. Configuración de Ghost
 
-Para el proceso de ejecución de las pruebas contenidas en este proyecto se debe utilizar Ghost v.3.3.0. Adicionalmente, es necesario crear con antelación un usuario administrador con las credenciales:
+- Abrir una terminal de ejecución de comandos y ejecutar el siguiente comando `docker run -d --name ghost -e url=http://localhost:3001 -p 3001:2368 ghost:3.3.0`. Tener en cuenta que el puerto `3001` no se encuentre en uso. De otro modo cambiarlo por alguno libre, tanto en la URL como en el puerto que se expone. p. ejem. `docker run -d --name ghost -e url=http://localhost:5000 -p 5000:2368 ghost:3.3.0` se cambió al puerto `5000`
 
-E-mail: test@ghost.com
-
-Password: 123456abc*
+- Abrir un navegador con la URL `http://localhost:3001/ghost` y crear un usuario inicial con los siguientes parametros
+- E-mail: `test@ghost.com`
+- Password: `123456abc*`
 
 ### 2. Configuración y ejecución de las pruebas en Puppeteer
 
@@ -40,4 +43,21 @@ TODO: comandos de preparación en Kraken
 
 ### [Funcionalidades](https://github.com/J3LopezL/fedafajo/wiki/FuncionalidadesProbadas)
 
+1. Login
+2. Creación Tags
+3. Creación Pages
+4. Creación Posts
+
 ### [Escenarios](https://github.com/J3LopezL/fedafajo/wiki/Escenariospruebas)
+
+- Login blank User
+- Login blanck password
+- Login Invalid Password and User
+- Login Valid
+- Create Valid Tag
+- Create Tag with space in the name
+- Create Tag with empty name
+- Create Tag with invalid description
+- Create Page and publish it successfully
+- Create Page and schedule it successfully
+- Create draft Page
