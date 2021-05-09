@@ -1,6 +1,6 @@
 async function createTag(page, { tagName, tagSlug, tagDescription }) {
   await page.click('a[href="#/tags/"]');
-  await page.waitForNavigation();
+  await new Promise((r) => setTimeout(r, 1000));
   await page.click(".ember-view.gh-btn.gh-btn-green");
   await page.type('input[id="tag-name"]', tagName);
   await page.type('input[id="tag-slug"]', tagSlug);
