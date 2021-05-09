@@ -1,7 +1,7 @@
 Feature: Tag Login User
 
   @user1 @web
-  Scenario: Login blanck User
+  Scenario: Login with blanck User
     # try
     Given I navigate to page "http://localhost:3001/ghost/"
     Then I enter "" into input field having id "ember8"
@@ -12,7 +12,7 @@ Feature: Tag Login User
     Then I should see text "Please fill out the form to sign in. "
 
   @user2 @web
-  Scenario: Login blanck password
+  Scenario: Login with blanck Password
     # try
     Given I navigate to page "http://localhost:3001/ghost/"
     Then I enter "jose@ghost.com" into input field having id "ember8"
@@ -23,7 +23,7 @@ Feature: Tag Login User
     Then I should see text "Please fill out the form to sign in. "
 
   @user3 @web
-  Scenario: Login Invalid Password an User
+  Scenario: Login with Invalid User and Password
     # try
     Given I navigate to page "http://localhost:3001/ghost/"
     Then I enter "jose@ghost.com" into input field having id "ember8"
@@ -44,6 +44,6 @@ Feature: Tag Login User
     # Expect to match "Please fill out the form to sign in. "
     Then I navigate to page "http://localhost:3001/ghost/#/site"
 
-# Execute logout
+    # Execute logout
     Then I click on element having css selector ".gh-user-name.mb1"
     Then I click on element having css selector ".dropdown-item.user-menu-signout.ember-view"
