@@ -43,21 +43,4 @@ TODO: comandos de preparación en Kraken
 
 ### [Funcionalidades](https://github.com/J3LopezL/fedafajo/wiki/FuncionalidadesProbadas)
 
-1. Login
-2. Creación Tags
-3. Creación Pages
-4. Creación Posts
-
 ### [Escenarios](https://github.com/J3LopezL/fedafajo/wiki/Escenariospruebas)
-
-- Login blank User
-- Login blanck password
-- Login Invalid Password and User
-- Login Valid
-- Create Valid Tag
-- Create Tag with space in the name
-- Create Tag with empty name
-- Create Tag with invalid description
-- Create Page and publish it successfully
-- Create Page and schedule it successfully
-- Create draft Page
