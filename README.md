@@ -24,6 +24,8 @@ Prerequisitos:
 - E-mail: `test@ghost.com`
 - Password: `123456abc*`
 
+### Nota: Es importante que el contendedor creado se encuentre en ejecución al momento de ejecutar las pruebas
+
 ### 2. Configuración y ejecución de las pruebas en Puppeteer
 
 Dado que el proyecto contiene el código de las pruebas desarrolladas con ambas herramientas, con el fin de ejecutar la suite de pruebas de Puppeteer, es necesario localizar la terminal en el directorio *fedafajo/Puppeteer*. Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas: 
