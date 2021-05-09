@@ -1,7 +1,7 @@
 module.exports = {
   launch: {
     dumpio: false,
-    headless: true, //process.env.HEADLESS !== "false", // export HEADLESS=false to launch Chromium
+    headless: false, //process.env.HEADLESS !== "false", // export HEADLESS=false to launch Chromium
     devtools: false, // optionally display devtools in non-headless mode
     // slowMo: 100, // optionally slow down typing
     defaultViewport: {
