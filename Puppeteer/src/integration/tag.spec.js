@@ -2,52 +2,6 @@ const navigationPage = require("../page-objects/navigation-page");
 const tagPage = require("../page-objects/tag-page");
 const faker = require("faker");
 
-describe("create User", () => {
-  beforeEach(async () => {
-    jest.setTimeout(20000);
-    await navigationPage.navigate(page);
-  });
-
-  it("Create User Admin", async () => {
-    await tagPage.createUser(page, {
-      blogTitle: "Ghost Pruebas",
-      blogName: "Test Ghost",
-      blogEmail: "test@ghost.com",
-      blogPassword: "123456abc*",
-    });
-    await expect(page).toMatch("test@ghost.com");
-    await navigationPage.logout(page);
-  });
-
-  it("Login Invalid User", async () => {
-    await navigationPage.login(page, "jose", "Miso2021!");
-    await expect(page).toMatch(/Please.*/);
-  });
-
-  it("Login Invalid Password and User", async () => {
-    await navigationPage.login(page, "jose@ghost.com", "Miso2021!");
-    await expect(page).not.toMatch("jose@ghost");
-    await expect(page).toMatch(/Acces.*/);
-  });
-
-  it("Login blanck User", async () => {
-    await navigationPage.login(page, "", "Miso2021!");
-    await expect(page).toMatch(/Please.*/);
-  });
-
-  it("Login blanck password", async () => {
-    await navigationPage.login(page, "jose@ghost.com", "");
-    await expect(page).toMatch(/Please.*/);
-  });
-
-  it("Login Valid", async () => {
-    await navigationPage.login(page, "test@ghost.com", "123456abc*");
-    await tagPage.homePage(page);
-    await expect(page).toMatch("test@ghost.com");
-    await navigationPage.logout(page);
-  });
-});
-
 describe("Create Tag", () => {
   beforeEach(async () => {
     jest.setTimeout(50000);
