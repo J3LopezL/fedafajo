@@ -17,7 +17,15 @@ async function createUser(
     await new Promise((r) => setTimeout(r, 2000));
   }
 
+  async function clicsLogin(page) {
+    for(let i = 0; i < 10; i++ ) {
+      await page.click('button[id="ember12"]');
+    };
+    await new Promise((r) => setTimeout(r, 2000));
+  }
+
   module.exports = {
     createUser,
     homePage,
+    clicsLogin,
   };
