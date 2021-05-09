@@ -38,7 +38,7 @@ Dado que el proyecto contiene el código de las pruebas desarrolladas con ambas 
 TODO: comandos de preparación en Kraken
 ```
 
-## Funcionalidades y escenarios de prueba
+### [Funcionalidades](https://github.com/J3LopezL/fedafajo/wiki/FuncionalidadesProbadas)
 
 ### 1. Inicio de sesión
 
