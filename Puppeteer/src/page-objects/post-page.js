@@ -4,7 +4,7 @@ createPost = async (post, postTitle, postContent) => {
   await post.click('a[href="#/editor/post/"]');
   await new Promise((r) => setTimeout(r, 1000));
 
-  await post.type(
+  await page.type(
     'textarea[class="gh-editor-title ember-text-area gh-input ember-view"]',
     postTitle
   );
