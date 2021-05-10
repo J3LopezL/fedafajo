@@ -30,12 +30,12 @@ describe("Create Post", () => {
     await expect(page).toMatch(postTitle);
   }); 
 
-  it("Create and Cancel a Publish attempt", async () => {
+  it("Create and Cancel a Post Publishing attempt", async () => {
     const postTitle = faker.random.word();
     const postContent = faker.lorem.lines(2);
 
-    await postPage.createPage(page, postTitle, postContent);
-    await postPage.cancelPage(page);
+    await postPage.createPost(page, postTitle, postContent);
+    await postPage.cancelPost(page);
 
     await expect(page).toMatch("Canceled");
 
@@ -50,8 +50,8 @@ describe("Create Post", () => {
     const postTitle = faker.random.word();
     const postContent = faker.lorem.lines(2);
 
-    await postPage.createPage(page, postTitle, postContent);
-    await postPage.schedulePage(page);
+    await postPage.createPost(page, postTitle, postContent);
+    await postPage.schedulePost(page);
 
     await expect(page).toMatch("Scheduled");
 
@@ -66,7 +66,7 @@ describe("Create Post", () => {
     const postTitle = faker.random.word();
     const postContent = faker.lorem.lines(1);
 
-    await postPage.createPage(page, postTitle, postContent);
+    await postPage.createPost(page, postTitle, postContent);
     await page.goBack();
     await new Promise((r) => setTimeout(r, 1000));
 
