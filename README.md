@@ -53,6 +53,11 @@ npm test
 
 ### 3. Configuración y ejecución de las pruebas en Kraken
 
+```
+Debe estar en ejecución el contendor.
+Debe estar creado el usuario administrador en ghost.
+```
+
 Las pruebas se encuentran en el diretorio fedafajo. Para ejecutar la suite de pruebas de Kraken, es necesario localizar la terminal en el directorio *fedafajo/Kraken*. Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas:
 
 ```
