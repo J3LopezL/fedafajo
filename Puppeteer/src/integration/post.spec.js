@@ -2,7 +2,6 @@ const navigationPage = require("../page-objects/navigation-page");
 const postPage = require("../page-objects/post-page");
 const faker = require("faker");
 const config = require("../credentials");
-const { internet } = require("faker");
 
 describe("Create Post", () => {
   beforeEach(async () => {
@@ -15,7 +14,7 @@ describe("Create Post", () => {
     await navigationPage.logout(page);
   });
 
-  it("Create and Publish a Post",  async () => {
+  it("Create and Publish a Post", async () => {
     const postTitle = faker.random.word();
     const postContent = faker.lorem.lines(2);
 
@@ -28,7 +27,7 @@ describe("Create Post", () => {
     await page.click(".gh-notification-close");
 
     await expect(page).toMatch(postTitle);
-  }); 
+  });
 
   it("Create and Cancel a Post Publishing attempt", async () => {
     const postTitle = faker.random.word();
