@@ -18,17 +18,21 @@ Prerequisitos:
 
 ### 1. Configuración de Ghost
 
-- Abrir una terminal de ejecución de comandos y ejecutar el siguiente comando `docker run -d --name ghost -e url=http://localhost:3001 -p 3001:2368 ghost:3.3.0`. Tener en cuenta que el puerto `3001` no se encuentre en uso. De otro modo cambiarlo por alguno libre, tanto en la URL como en el puerto que se expone. p. ejem. `docker run -d --name ghost -e url=http://localhost:5000 -p 5000:2368 ghost:3.3.0` se cambió al puerto `5000`
-
-- Abrir un navegador con la URL `http://localhost:3001/ghost` y crear un usuario inicial con los siguientes parametros
+- Abrir una terminal de ejecución de comandos y ejecutar el siguiente comando `docker run -d --name ghost -e url=http://localhost:3001 -p 3001:2368 ghost:3.3.0`. Tener en cuenta que el puerto `3001` no se encuentre en uso.
+ 
+- Abrir un navegador con la URL `http://localhost:3001/ghost` y crear un usuario inicial con los siguientes parametros:
 - E-mail: `test@ghost.com`
 - Password: `123456abc*`
+
+o
+
+- Abrir el directorio que contiene las pruebas (fedafajo/Puppeteer/src/integration) y habiltar la prueba a.spe.js renombrandola Ejm. a.espec.js y quitando o desabiltando las otras pruebas para que se ejecute sola y cree el usuario administrador y despues corrarla o volver a deshabilitarla y dejat solo las demás pruebas.
 
 ### Nota: Es importante que el contendedor creado se encuentre en ejecución al momento de ejecutar las pruebas
 
 ### 2. Configuración y ejecución de las pruebas en Puppeteer
 
-Dado que el proyecto contiene el código de las pruebas desarrolladas con ambas herramientas, con el fin de ejecutar la suite de pruebas de Puppeteer, es necesario localizar la terminal en el directorio *fedafajo/Puppeteer*. Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas: 
+Las pruebas se encuentran en el diretorio fedafajo. Para ejecutar la suite de pruebas de Puppeteer, es necesario localizar la terminal en el directorio *fedafajo/Puppeteer*. Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas: 
 
 ```
 npm install
@@ -37,10 +41,21 @@ npm test
 
 ### 3. Configuración y ejecución de las pruebas en Kraken
 
-Dado que el proyecto contiene el código de las pruebas desarrolladas con ambas herramientas, con el fin de ejecutar la suite de pruebas de Puppeteer, es necesario localizar la terminal en el directorio *fedafajo/Kraken*. Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas:
+Las pruebas se encuentran en el diretorio fedafajo. Para ejecutar la suite de pruebas de Kraken, es necesario localizar la terminal en el directorio *fedafajo/Kraken*. Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas:
 
 ```
-TODO: comandos de preparación en Kraken
+export ANDROID_HOME="/usr/lib/android-sdk/"
+export PATH="${PATH}:${ANDROID_HOME}tools/:${ANDROID_HOME}platform-tools/"
+
+Las pruebas se corren con el comando:
+
+kraken-mobile run
+
+Los resultados deben aparecer en la carpetar resports del directorio Kraken.
+
+Si no funciona lo anterior...
+```
+TODO: ejecutar los comandos de preparación en Kraken suministrados pare el curso.
 ```
 
 ### [Funcionalidades](https://github.com/J3LopezL/fedafajo/wiki/FuncionalidadesProbadas)
