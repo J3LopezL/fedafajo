@@ -18,8 +18,18 @@ Prerequisitos:
 
 ### 1. Configuración de Ghost
 
-- Abrir una terminal de ejecución de comandos y ejecutar el siguiente comando `docker run -d --name ghost -e url=http://localhost:3001 -p 3001:2368 ghost:3.3.0`. Tener en cuenta que el puerto `3001` no se encuentre en uso.
- 
+- Abrir una terminal y ejecutar el siguiente comando `docker run -d --name ghost -e url=http://localhost:3001 -p 3001:2368 ghost:3.3.0`. Tener en cuenta que el puerto `3001` no se encuentre en uso.
+
+```
+Comando para docker, pueden requirir privilegios:
+
+Detener contenedor: docker stop ghost
+
+Reiniciar el contenedor: docker start ghost
+
+Comado para borrar el contenedor, debe estar parado: docker rm ghost
+```
+
 - Abrir un navegador con la URL `http://localhost:3001/ghost` y crear un usuario inicial con los siguientes parametros:
 - E-mail: `test@ghost.com`
 - Password: `123456abc*`
