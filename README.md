@@ -16,17 +16,11 @@ Repositorio pruebas E2E MISO 2021.
 Prerequisitos:
 - Instalar la última versión de Docker desde https://www.docker.com/get-started
 
+## Clone este repositorio en su equipo.
+
 ### 1. Configuración de Ghost
 
 - Abrir una terminal y ejecutar el siguiente comando `docker run -d --name ghost -e url=http://localhost:3001 -p 3001:2368 ghost:3.3.0`. Tener en cuenta que el puerto `3001` no se encuentre en uso.
-
-```
-Comando para docker, pueden requirir privilegios:
-
-- Detener contenedor: docker stop ghost
-- Reiniciar el contenedor: docker start ghost
-- Comado para borrar el contenedor, debe estar parado: docker rm ghost
-```
 
 - Abrir un navegador con la URL `http://localhost:3001/ghost` y crear un usuario inicial con los siguientes parametros:
 - E-mail: `test@ghost.com`
@@ -36,7 +30,17 @@ o
 
 - Abrir el directorio que contiene las pruebas (fedafajo/Puppeteer/src/integration) y habiltar la prueba a.spe.js renombrandola Ejm. a.espec.js y quitando o desabiltando las otras pruebas para que se ejecute sola y cree el usuario administrador y despues corrarla o volver a deshabilitarla y dejat solo las demás pruebas.
 
-### Nota: Es importante que el contendedor creado se encuentre en ejecución al momento de ejecutar las pruebas
+```
+Comando para docker, pueden requirir privilegios:
+
+- Detener contenedor: docker stop ghost
+- Reiniciar el contenedor: docker start ghost
+- Comado para borrar el contenedor, debe estar parado: docker rm ghost
+- Ver contenedores en ejecución: docker ps -a
+```
+
+### Nota: Es importante que el contendedor se encuentre en ejecución al momento de ejecutar las pruebas:
+
 
 ### 2. Configuración y ejecución de las pruebas en Puppeteer
 
