@@ -23,11 +23,9 @@ Prerequisitos:
 ```
 Comando para docker, pueden requirir privilegios:
 
-Detener contenedor: docker stop ghost
-
-Reiniciar el contenedor: docker start ghost
-
-Comado para borrar el contenedor, debe estar parado: docker rm ghost
+- Detener contenedor: docker stop ghost
+- Reiniciar el contenedor: docker start ghost
+- Comado para borrar el contenedor, debe estar parado: docker rm ghost
 ```
 
 - Abrir un navegador con la URL `http://localhost:3001/ghost` y crear un usuario inicial con los siguientes parametros:
