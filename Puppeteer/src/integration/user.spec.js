@@ -1,5 +1,6 @@
 const navigationPage = require("../page-objects/navigation-page");
 const userPage = require("../page-objects/user-page");
+const config = require("../credentials");
 
 describe("Manager user", () => {
     beforeEach(async () => {
@@ -26,7 +27,7 @@ describe("Manager user", () => {
     });
   
     it("Login Valid", async () => {
-      await navigationPage.login(page, "test@ghost.com", "123456abc*");
+      await navigationPage.login(page, config.user, config.password);
       await userPage.homePage(page);
       await expect(page).toMatch("test@ghost.com");
       await navigationPage.logout(page);
