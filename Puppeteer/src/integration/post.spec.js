@@ -36,11 +36,7 @@ describe("Create Post", () => {
     await postPage.createPost(page, postTitle, postContent);
     await postPage.cancelPost(page);
 
-    await expect(page).toMatch("Canceled");
-
-    await page.goBack();
-    await new Promise((r) => setTimeout(r, 1000));
-    await page.click(".gh-notification-close");
+    await postPage.discardChanges(page);
 
     await expect(page).toMatch(postTitle);
   });

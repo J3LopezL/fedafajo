@@ -26,45 +26,52 @@ createPost = async (post, postTitle, postContent) => {
 };
 
 cancelPost = async (page) => {
-    await page.click(
-      "div[class='gh-btn gh-btn-outline gh-publishmenu-trigger ember-basic-dropdown-trigger ember-view']"
-    );
-    await new Promise((r) => setTimeout(r, 1000));
-    await page.click(
-      "button[class='gh-btn gh-btn-outline gh-btn-link']"
-    );
-    await new Promise((r) => setTimeout(r, 2000));
+  await page.click(
+    "div[class='gh-btn gh-btn-outline gh-publishmenu-trigger ember-basic-dropdown-trigger ember-view']"
+  );
+  await new Promise((r) => setTimeout(r, 1000));
+  await page.click("button[class='gh-btn gh-btn-outline gh-btn-link']");
+  await new Promise((r) => setTimeout(r, 2000));
 };
 
 publishPost = async (page) => {
-    await page.click(
-      "div[class='gh-btn gh-btn-outline gh-publishmenu-trigger ember-basic-dropdown-trigger ember-view']"
-    );
-    await new Promise((r) => setTimeout(r, 1000));
-    await page.click(
-      "button[class='gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view']"
-    );
-    await new Promise((r) => setTimeout(r, 2000));
+  await page.click(
+    "div[class='gh-btn gh-btn-outline gh-publishmenu-trigger ember-basic-dropdown-trigger ember-view']"
+  );
+  await new Promise((r) => setTimeout(r, 1000));
+  await page.click(
+    "button[class='gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view']"
+  );
+  await new Promise((r) => setTimeout(r, 2000));
 };
 
 schedulePost = async (page) => {
-    await page.click(
-      "div[class='gh-btn gh-btn-outline gh-publishmenu-trigger ember-basic-dropdown-trigger ember-view']"
-    );
-    await new Promise((r) => setTimeout(r, 1000));
-  
-    await page.click("div[class='gh-date-time-picker-time ']");
-    await new Promise((r) => setTimeout(r, 1000));
-  
-    await page.click(
-      "button[class='gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view']"
-    );
-    await new Promise((r) => setTimeout(r, 2000));
-  };
+  await page.click(
+    "div[class='gh-btn gh-btn-outline gh-publishmenu-trigger ember-basic-dropdown-trigger ember-view']"
+  );
+  await new Promise((r) => setTimeout(r, 1000));
 
-  module.exports = {
-    createPost,
-    cancelPost,
-    publishPost,
-    schedulePost,
-  };
+  await page.click("div[class='gh-date-time-picker-time ']");
+  await new Promise((r) => setTimeout(r, 1000));
+
+  await page.click(
+    "button[class='gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view']"
+  );
+  await new Promise((r) => setTimeout(r, 2000));
+};
+
+discardChanges = async (page) => {
+  await page.click('a[href="#/posts/"]');
+  await new Promise((r) => setTimeout(r, 2000));
+
+  await page.click('button[class="gh-btn gh-btn-red"]');
+  await new Promise((r) => setTimeout(r, 2000));
+};
+
+module.exports = {
+  createPost,
+  cancelPost,
+  publishPost,
+  schedulePost,
+  discardChanges,
+};
