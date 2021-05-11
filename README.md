@@ -72,9 +72,7 @@ Los resultados deben aparecer en la carpetar resports del directorio Kraken.
 
 Si no funciona lo anterior...
 ```
-TODO: ejecutar los comandos de preparación en Kraken suministrados pare el curso.
-```
+TODO: ejecutar los comandos de preparación en Kraken suministrados para el curso.
 
 ### [Funcionalidades](https://github.com/J3LopezL/fedafajo/wiki/FuncionalidadesProbadas)
-
-### [Escenarios](https://github.com/J3LopezL/fedafajo/wiki/Escenariospruebas)
+### [Escenarios](https://github.com/J3LopezL/fedafajo/wiki/Escenarios-pruebas)
