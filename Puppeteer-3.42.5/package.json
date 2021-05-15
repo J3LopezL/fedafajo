@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --runInBand",
-    "test:voyeur": "HEADLESS=false jest --runInBand"
+    "test:voyeur": "HEADLESS=false jest --runInBand",
+    "test:page": "jest page.spec.js"
   },
   "jest": {
     "preset": "jest-puppeteer"
