@@ -1,3 +1,6 @@
 ./Puppeteer/node_modules
+./Puppeteer-3.3.0/node_modules
+./Puppeteer-3.42.5/node_modules
 ./Kraken/reports
-
+./Kraken-3.3.0/reports
+./Kraken-3.42.5/reports
