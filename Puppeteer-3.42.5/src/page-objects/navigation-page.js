@@ -1,5 +1,5 @@
 async function navigate(page) {
-  await page.goto("http://localhost:3001/ghost");
+  await page.goto("http://localhost:3002/ghost");
   await new Promise((r) => setTimeout(r, 2000));
 }
 
@@ -11,8 +11,8 @@ async function login(page, email, password) {
 }
 
 async function logout(page) {
-  await page.click(".gh-nav-bottom");
-  await page.click(".user-menu-signout");
+  await page.click(".gh-user-avatar.relative");
+  await page.click('a[href="#/signout/"]');
   await new Promise((r) => setTimeout(r, 2000));
 }
 
