@@ -6,7 +6,11 @@
   "scripts": {
     "test": "jest --runInBand",
     "test:voyeur": "HEADLESS=false jest --runInBand",
-    "test:page": "jest page.spec.js"
+    "test:page": "jest page.spec.js",
+    "test:user": "jest user.spec.js",
+    "test:tag": "jest tag.spec.js",
+    "test:post": "jest post.spec.js",
+    "test:edit": "jest edit.spec.js"
   },
   "jest": {
     "preset": "jest-puppeteer"
