@@ -16,6 +16,5 @@ describe("Create user", () => {
       blogPassword: config.password,
     });
     await expect(page).toMatch("test@ghost.com");
-    await navigationPage.logout(page);
   });
 });

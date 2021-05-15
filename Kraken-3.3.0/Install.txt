@@ -1,0 +1,37 @@
+1. Abra una terminal desde la carpeta Kraken.
+2. Kraken se descarga con sus dependencias.
+3. Ejecute en la terminal los comandos:
+   export ANDROID_HOME="/usr/lib/android-sdk/"
+   export PATH="${PATH}:${ANDROID_HOME}tools/:${ANDROID_HOME}platform-tools/"
+4. ejecute el comando: kraken-mobile run
+5. Los resulstados de los test los harrará en el durectorio results.
+
+No debería tener ningun problema. Si lo tiene haga la instalación detallada.
+
+*************************************************************************
+Instalación detallada de Kracken
+abra una terminal y ubique la ruta donde va trabajar
+1. Instalar bundler: sudo gem install bundler
+2. crear una carpeta: mkdir carpeta.
+3. Dentro de la "carpeta": cd carpeta
+4. Ejecutar: bundle init
+5. Editar el archivo Gemfile, reemplacelo con:
+# Contents of Gemfile
+source "https://rubygems.org"
+gem 'rubyzip', '1.2.1' # Required version for running calabash-android in Windows
+gem 'kraken-mobile', path: './KrakenMobile'
+6. Descargue KrakenMobile: https://github.com/TheSoftwareDesignLab/KrakenMobile/archive/refs/tags/1.0.9.zip.
+7. Descomprima el archivo descargado, genera una carpeta. Renombrela KrakenMobile y pasela al directorio de trabajo "carpeta".
+8. copie esta linea en la terminal: bundle config set --local path 'vendor/bundle'
+9. Ejecute en la terminal: bundle install
+10. Ejecute desde terminal: export ANDROID_HOME="/usr/lib/android-sdk/"
+11. Ejecute en la terminal: export PATH="${PATH}:${ANDROID_HOME}tools/:${ANDROID_HOME}platform-tools/"
+12. Ejecute en la terminal: kraken-mobile gen
+13. Presione enter.
+14. Ejecute en la terminal: kraken-mobile setup
+15. Elija la opción 2 y de dos veces enter.
+16. Las pruebas se crean en el directorio features, archivo my_first.feature.
+17. Los pasos de definen en el directorio features/step_definitions, archivo mobile_steps.rb
+16. La prueba se ejecuta en la terminal y crea la carpeta reports: kraken-mobile run
+*************************************************************************
+
