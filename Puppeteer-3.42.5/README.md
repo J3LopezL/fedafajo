@@ -5,6 +5,7 @@ This repo demonstrates how to connect to and test a website using `jest-puppetee
 # Usage
 
 ```
+npm install jest-puppeteer puppeteer
 npm install
 npm test
 ```
