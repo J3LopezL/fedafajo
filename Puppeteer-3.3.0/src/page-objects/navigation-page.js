@@ -11,8 +11,12 @@ async function login(page, email, password) {
 }
 
 async function logout(page) {
+  await page.waitForSelector(".gh-nav-bottom", { visible: true });
   await page.click(".gh-nav-bottom");
+
+  await page.waitForSelector(".user-menu-signout", { visible: true });
   await page.click(".user-menu-signout");
+
   await new Promise((r) => setTimeout(r, 2000));
 }
 
