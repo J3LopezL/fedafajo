@@ -23,9 +23,9 @@ describe("Create Page", () => {
 
   afterEach(async () => {
     await navigationPage.logout(page);
-    await page.screenshot({
-      path: `${pathImages}/logout.jpg`,
-    });
+    // await page.screenshot({
+    //   path: `${pathImages}/logout.jpg`,
+    // });
   });
 
   it("Create Page and publish it successfully", async () => {
