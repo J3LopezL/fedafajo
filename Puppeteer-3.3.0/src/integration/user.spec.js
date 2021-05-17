@@ -35,6 +35,12 @@ describe("Manager user", () => {
     await page.screenshot({ path: `../Results/Puppeteer/v3.3.0/Login/user${id}.jpg`});
   });
 
+  it("Login User valid, password invalid", async () => {
+    await navigationPage.login(page, config.user, "Miso2021!");
+    await expect(page).toMatch(/Your password.*/);
+    await page.screenshot({ path: `../Results/Puppeteer/v3.3.0/Login/user${id}.jpg`});
+  });
+
   it("Login Valid", async () => {
     await navigationPage.login(page, config.user, config.password);
     await userPage.homePage(page);

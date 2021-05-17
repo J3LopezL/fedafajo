@@ -44,6 +44,13 @@ describe("Manager user", () => {
     await page.screenshot({ path: `../Results/Puppeteer/v3.42.5/Login/user${id}.jpg`});
   });
 
+  it("Login User valid, password invalid", async () => {
+    const fpass = faker.random.word();
+    await navigationPage.login(page, config.user, fpass);
+    await expect(page).toMatch(/Your password.*/);
+    await page.screenshot({ path: `../Results/Puppeteer/v3.42.5/Login/user${id}.jpg`});
+  });
+
   it("Login Valid", async () => {
     await navigationPage.login(page, config.user, config.password);
     await expect(page).toMatch("Ghost Pruebas");
