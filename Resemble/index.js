@@ -9,7 +9,7 @@ const { viewportHeight, viewportWidth, browsers, options } = config;
 const resultInfo = {};
 const herramientas = ["Puppeteer"];
 const versiones = ["v3.3.0", "v3.42.5"];
-const funcionalidades = ["CreateTag", "Login", "CreatePage"];
+const funcionalidades = ["CreateTag", "Login", "CreatePage", "CreatePost"];
 
 const executeTest = async () => {
   for (let h of herramientas) {
