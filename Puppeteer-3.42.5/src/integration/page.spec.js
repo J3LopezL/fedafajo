@@ -19,6 +19,16 @@ describe("Create Page", () => {
     });
   });
 
+  // beforeEach(async () => {
+  //   jest.setTimeout(50000);
+  //   await navigationPage.navigate(page);
+  //   await navigationPage.login(page, config.user, config.password);
+  // });
+
+  // afterEach(async () => {
+  //   await navigationPage.logout(page);
+  // });
+
   it("Create Page and publish it successfully", async () => {
     const pageTitle = faker.random.word();
     const pageContent = faker.lorem.lines(1);
