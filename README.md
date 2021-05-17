@@ -91,15 +91,16 @@ kraken-mobile run
 Los resultados deben aparecer en la carpeta resports del directorio fedafajo.
 
 Si no funciona lo anterior...
+
+Dentro del repositorio en la ruta de `/reports` puede encontrar la ejecución de reportes previamente ejecutados.
+
+TODO: ejecutar los comandos de preparación en Kraken suministrados para el curso.
 ```
 
 # 4. Resemble
 
 Haciendo uso del terminal abrir la carpeta `Resemble` y ejecutar el comando `npm install`, al finalizar ejecutar el comando `node index` para la generación del reporte. El reporte se puede ver en la ruta: `./Resemble/reports/{HoraEjecución}/report.html`
 
-Dentro del repositorio en la ruta de `/reports` puede encontrar la ejecución de reportes previamente ejecutados.
-
-TODO: ejecutar los comandos de preparación en Kraken suministrados para el curso.
 
 #### [Funcionalidades](https://github.com/J3LopezL/fedafajo/wiki/FuncionalidadesProbadas)
 #### [Escenarios](https://github.com/J3LopezL/fedafajo/wiki/Escenarios-pruebas)
