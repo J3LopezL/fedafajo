@@ -1,6 +1,0 @@
-
-Instalar puppeteer
-
-npm install jest-puppeteer puppeteer
-
-Desde la carpeta Puppeteer ejecutar: npm install y npm test para correr las pruebas.
