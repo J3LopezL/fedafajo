@@ -17,7 +17,7 @@ async function login(page, email, password) {
 }
 
 async function logout(page) {
-//  await page.click('div[class="gh-nav-bottom"]');
+  //  await page.click('div[class="gh-nav-bottom"]');
   await page.goto("http://localhost:3002/#/signout/");
   await new Promise((r) => setTimeout(r, 2000));
 }
