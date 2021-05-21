@@ -2,9 +2,8 @@ const navigationPage = require("../page-objects/navigation-page");
 const editPost = require("../page-objects/edit-page");
 const config = require("../credentials");
 const info = require("../aprioriData");
-// se puede usan el json de más o menos de la estructura?
 
-describe("Modify Post", () => {
+describe("Modify post positive stage", () => {
   beforeEach(async () => {
     await navigationPage.navigate(page);
     jest.setTimeout(20000);
@@ -15,30 +14,22 @@ describe("Modify Post", () => {
     jest.setTimeout(20000);
   });
 
-   it("Select Post & Edit Title", async () => {
-     await navigationPage.login(page, config.user, config.password);
-     await expect(page).toMatch("test@ghost.com");
-     await editPost.listPost(page);
-     await expect(page).toMatch("Posts");
+  it("Start section with Admin", async () => {
+    await navigationPage.login(page, config.user, config.password);
+    await expect(page).toMatch("test@ghost.com");
+  });
 
-     await editPost.selectPost(page);
-     await page.type("textarea", "Usar json aquí");
-     await editPost.updatePost(page);
-     await editPost.listPost(page);
-     await expect(page).toMatch("Usar json aquí");
+  for (let i=0; i < info.post.length; i++) {
+    let identify = "Select Post & Edit Title " + info.post[i].titulo;
+    it(identify, async () => {
+      await editPost.listPost(page);
+      await expect(page).toMatch("Posts");
+      await editPost.selectPost(page);
+      await page.type("textarea", " ", info.post[i].titulo);
+      await editPost.updatePost(page);
+      await editPost.listPost(page);
+      await expect(page).toMatch(info.post[i].titulo);
     });
-
-  // it("Select Post & Edit with empty Title", async () => {
-  //   await navigationPage.login(page, config.user, config.password);
-  //   await expect(page).toMatch("test@ghost.com");
-  //   await editPost.listPost(page);
-  //   await expect(page).toMatch("Posts");
-
-  //   await editPost.selectPost(page);
-  //   await editPost.setEmptyTitle(page);
-  //   await editPost.updatePost(page);
-  //   await editPost.listPost(page);
-  //   await expect(page).toMatch("(Untitled)");
-  // });
+  }
 });
 
