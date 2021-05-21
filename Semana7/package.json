@@ -1,0 +1,36 @@
+{
+  "name": "jest-puppeteer-example",
+  "version": "1.0.0",
+  "description": "Automated browser testing example using Jest and Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:voyeur": "HEADLESS=false jest --runInBand",
+    "test:page": "jest page.spec.js",
+    "test:user": "jest user.spec.js",
+    "test:tag": "jest tag.spec.js",
+    "test:post": "jest post.spec.js",
+    "test:edit": "jest edit.spec.js",
+    "test:crear": "jest a.spec.js"
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "faker": "^5.5.3",
+    "jest": "^26.6.3",
+    "jest-puppeteer": "^5.0.3",
+    "puppeteer": "^9.1.1"
+  },
+  "keywords": [
+    "testing",
+    "puppeteer",
+    "jest",
+    "chromium"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "expect-puppeteer": "^5.0.3"
+  }
+}
