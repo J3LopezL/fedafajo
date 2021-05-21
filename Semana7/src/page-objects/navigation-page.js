@@ -3,7 +3,13 @@ async function navigate(page) {
   await new Promise((r) => setTimeout(r, 2000));
 }
 
+async function start(page) {
+  await page.goto("http://localhost:3002/#/signin");
+  await new Promise((r) => setTimeout(r, 2000));
+}
+
 async function login(page, email, password) {
+  await page.waitForSelector('input[id="ember8"]', { visible: true });
   await page.type('input[id="ember8"]', email);
   await page.type('input[id="ember10"]', password);
   await page.click('button[id="ember12"]');
@@ -11,13 +17,14 @@ async function login(page, email, password) {
 }
 
 async function logout(page) {
-  await page.click(".gh-nav-bottom");
-  await page.click(".user-menu-signout");
+  await page.click('div[class="gh-nav-bottom"]');
+  await page.goto("http://localhost:3002/#/signout/");
   await new Promise((r) => setTimeout(r, 2000));
 }
 
 module.exports = {
   navigate,
+  start,
   login,
   logout,
 };
