@@ -3,11 +3,6 @@ async function navigate(page) {
   await new Promise((r) => setTimeout(r, 2000));
 }
 
-async function start(page) {
-  await page.goto("http://localhost:3002/#/signin");
-  await new Promise((r) => setTimeout(r, 2000));
-}
-
 async function login(page, email, password) {
   await page.waitForSelector('input[id="ember8"]', { visible: true });
   await page.type('input[id="ember8"]', email);
@@ -24,7 +19,6 @@ async function logout(page) {
 
 module.exports = {
   navigate,
-  start,
   login,
   logout,
 };

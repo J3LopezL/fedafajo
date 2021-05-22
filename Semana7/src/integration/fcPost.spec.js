@@ -3,7 +3,7 @@ const post = require("../page-objects/post-page");
 const config = require("../credentials");
 const faker = require("faker");
 
-describe("Modify post positive stage", () => {
+describe("Create Post random data", () => {
 
   afterEach(async () => {
     jest.setTimeout(20000);

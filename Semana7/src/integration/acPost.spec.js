@@ -3,7 +3,7 @@ const post = require("../page-objects/post-page");
 const config = require("../credentials");
 const info = require("../aprioriData");
 
-describe("Modify post positive stage", () => {
+describe("Create post positive with apriori stage", () => {
 
   afterEach(async () => {
     jest.setTimeout(20000);

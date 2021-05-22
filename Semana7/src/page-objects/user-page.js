@@ -9,8 +9,6 @@ async function createUser(
     await page.type('input[id="password"]', blogPassword);
     await page.click('button[type="submit"]');
     await new Promise((r) => setTimeout(r, 2000));
-    await page.click('button[class="gh-flow-skip"]');
-    await new Promise((r) => setTimeout(r, 2000));
   }
   async function homePage(page) {
     await page.click('a[href="#/site/"]');

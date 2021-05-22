@@ -3,7 +3,7 @@ const post = require("../page-objects/post-page");
 const config = require("../credentials");
 const info = require("../aprioriData");
 
-describe("Modify post positive stage", () => {
+describe("Modify post apriori stage", () => {
   beforeEach(async () => {
     await navigationPage.navigate(page);
     jest.setTimeout(20000);
