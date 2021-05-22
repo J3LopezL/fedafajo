@@ -1,7 +1,7 @@
 const navigationPage = require("../page-objects/navigation-page");
 const post = require("../page-objects/post-page");
 const config = require("../credentials");
-const info = require("../aprioriData");
+const info = require("../Mock_Data");
 
 describe("Modify post apriori stage", () => {
   beforeEach(async () => {
@@ -19,16 +19,16 @@ describe("Modify post apriori stage", () => {
     await expect(page).toMatch("test@ghost.com");
   });
 
-  for (let i=0; i < info.post.length; i++) {
-    let identify = "Select Post & Edit Title " + info.post[i].titulo;
+  for (let i=0; i < info.length; i++) {
+    let identify = "Select Post & Edit Title " + info[i].Name;
     it(identify, async () => {
       await post.listPost(page);
       await expect(page).toMatch("Posts");
       await post.selectPost(page);
-      await page.type("textarea", info.post[i].titulo);
+      await page.type("textarea", info[i].Name);
       await post.updatePost(page);
       await post.listPost(page);
-      await expect(page).toMatch(info.post[i].titulo);
+      await expect(page).toMatch(info[i].Name);
     });
   }
 });

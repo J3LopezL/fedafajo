@@ -1,7 +1,6 @@
 const navigationPage = require("../page-objects/navigation-page");
 const userPage = require("../page-objects/user-page");
 const config = require("../loginData");
-const { page } = require("../aprioriData");
 let validU = "";
 
 describe("Create user", () => {

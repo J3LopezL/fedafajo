@@ -32,6 +32,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "expect-puppeteer": "^5.0.3"
+    "expect-puppeteer": "^5.0.3",
+    "puppeteer-extra-plugin-adblocker": "^2.11.11",
+    "puppeteer-extra-plugin-stealth": "^2.7.8"
   }
 }
