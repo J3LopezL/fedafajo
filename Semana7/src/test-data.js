@@ -47,8 +47,8 @@ getRandomTestLoginData = async (count) => {
 
   for (let index = 0; index < count; index++) {
     testData.push({
-      user: faker.lorem.word(),
-      password: faker.lorem.paragraph(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
     });
   }
 
@@ -162,5 +162,7 @@ getMockTestTagData = async (count) => {
 
 module.exports = {
   getTagTestData,
+  getLoginTestData,
+  getPostTestData,
   TYPE_DATA,
 };
