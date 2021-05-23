@@ -10,9 +10,9 @@
 
 Repositorio pruebas E2E MISO 2021.
 
-| Importante |
-| --- |
-| Para el trabajo desarrollado en la semana 7, favor revisar el README.md en el directorio 'Semana7'. |
+
+<span style="text-color:blue"> **Importante: para el trabajo desarrollado en la semana 7, favor revisar el README.md en el directorio 'Semana7'.** </span>
+
 
 ## Pruebas de extremo a extremo utilizando las herramientas Kraken y Puppeteer.
 
