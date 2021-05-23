@@ -3,12 +3,12 @@ async function listPost(page) {
   await new Promise((r) => setTimeout(r, 2000));
 }
 
-async function createPost(page, title, content) {
+async function createPost(page, { tagName, tagSlug, tagDescription, tagColor }) {
   await page.click('a[href="#/editor/post/"]');
   await page.click("textarea", { clickCount: 3 });
-  await page.type("textarea", title);
+  await page.type("textarea", tagName);
   await page.keyboard.press("Enter");
-  await page.type("p", content);
+  await page.type("p", tagDescription);
   await page.keyboard.press("Enter");
   await new Promise((r) => setTimeout(r, 2000));
 }
@@ -37,6 +37,11 @@ async function emptyTitle(page) {
   await page.type("textarea", " ");
 }
 
+async function discardChanges(page) {
+  await page.reload();
+  await new Promise((r) => setTimeout(r, 2000));
+}
+
 module.exports = {
   listPost,
   selectPost,
@@ -44,4 +49,5 @@ module.exports = {
   createPost,
   emptyTitle,
   savePost,
+  discardChanges,
 };
