@@ -152,15 +152,15 @@ getAprioriTestTagData = async (count) => {
 
 getMockTestTagData = async (count) => {
   const testData = [];
-  const json = await axios.get(
+  const jsonFile = await axios.get(
     "https://my.api.mockaroo.com/valid_tags.json?key=4a5d83e0"
   );
 
   for (let index = 0; index < count; index++) {
     const fileIndex = index % jsonFile.data.length;
     testData.push({
-      ...json.data[fileIndex],
-      tagColor: json.data[index].tagColor.slice(1),
+      ...jsonFile.data[fileIndex],
+      tagColor: jsonFile.data[index].tagColor.slice(1),
       isValid: true,
     });
   }

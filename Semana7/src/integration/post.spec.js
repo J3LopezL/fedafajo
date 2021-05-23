@@ -11,7 +11,7 @@ describe("Post", () => {
     await navigationPage.login(page, config.user, config.password);
   });
 
-  describe.skip("A priori", () => {
+  describe("A priori", () => {
     let posts = [];
     const number = 10;
 
@@ -63,7 +63,7 @@ describe("Post", () => {
     }
   });
 
-  describe.skip("Random data", () => {
+  describe("Random data", () => {
     let posts = [];
     const number = 10;
 

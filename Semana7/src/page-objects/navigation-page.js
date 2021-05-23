@@ -8,7 +8,7 @@ async function login(page, email, password) {
   await page.type('input[id="ember8"]', email);
   await page.type('input[id="ember10"]', password);
   await page.click('button[id="ember12"]');
-  await new Promise((r) => setTimeout(r, 2000));
+  await new Promise((r) => setTimeout(r, 5000));
 }
 
 async function logout(page) {
