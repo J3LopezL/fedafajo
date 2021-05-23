@@ -4,71 +4,90 @@ const config = require("../credentials");
 const { getTagTestData, TYPE_DATA } = require("../test-data");
 
 describe("Tag", () => {
-  describe.only("random data", () => {
+  beforeAll(async () => {
+    // Jest config
+    jest.setTimeout(50000);
+    await navigationPage.navigate(page);
+    await navigationPage.login(page, config.user, config.password);
+  });
+
+  describe("random data", () => {
     let tags = [];
-    const number = 3;
+    const number = 10;
 
     beforeAll(async () => {
-      // Jest config
-      jest.setTimeout(50000);
       await navigationPage.navigate(page);
-      await navigationPage.login(page, config.user, config.password);
       tags = await getTagTestData(TYPE_DATA.RANDOM, number);
-    });
-
-    for (let index = 0; index < number; index++) {
-      it(`faker #${index}`, async () => {
-        const tagData = tags[index];
-        await tagPage.createTag(page, tagData);
-        await expect(page).toMatch("Saved");
-        await tagPage.listTags(page);
-        await expect(page).toMatch(tagData.tagSlug);
-      });
-    }
-  });
-
-  describe.skip("a priori", () => {
-    let tags = [];
-    const number = 5;
-
-    beforeAll(async () => {
-      // Jest config
-      jest.setTimeout(50000);
-      await navigationPage.navigate(page);
-      await navigationPage.login(page, config.user, config.password);
-      tags = await getTagTestData(TYPE_DATA.APRIORI, number);
-    });
-
-    for (let index = 0; index < number; index++) {
-      it(`faker #${index}`, async () => {
-        const tagData = tags[index];
-        await tagPage.createTag(page, tagData);
-        await expect(page).toMatch("Saved");
-        await tagPage.listTags(page);
-        await expect(page).toMatch(tagData.tagSlug);
-      });
-    }
-  });
-
-  describe.skip("mock", () => {
-    let tags = [];
-    const number = 2;
-
-    beforeAll(async () => {
-      // Jest config
-      jest.setTimeout(50000);
-      await navigationPage.navigate(page);
-      await navigationPage.login(page, config.user, config.password);
-      tags = await getTagTestData(TYPE_DATA.SEMI, number);
     });
 
     for (let index = 0; index < number; index++) {
       it(`Create Tag - Random Data #${index}`, async () => {
         const tagData = tags[index];
         await tagPage.createTag(page, tagData);
-        await expect(page).toMatch("Saved");
-        await tagPage.listTags(page);
-        await expect(page).toMatch(tagData.tagSlug);
+
+        if (tagData.isValid) {
+          await expect(page).toMatch("Saved");
+          await tagPage.listTags(page);
+          await expect(page).toMatch(tagData.tagSlug);
+        } else {
+          await tagPage.discardChanges(page);
+          await tagPage.listTags(page);
+          await expect(page).not.toMatch(tagData.tagSlug);
+        }
+      });
+    }
+  });
+
+  describe("a priori", () => {
+    let tags = [];
+    const number = 10;
+
+    beforeAll(async () => {
+      await navigationPage.navigate(page);
+      tags = await getTagTestData(TYPE_DATA.APRIORI, number);
+    });
+
+    for (let index = 0; index < number; index++) {
+      it(`Create Tag - A Priori Data #${index}`, async () => {
+        const tagData = tags[index];
+        await tagPage.createTag(page, tagData);
+
+        if (tagData.isValid) {
+          await expect(page).toMatch("Saved");
+          await tagPage.listTags(page);
+          await expect(page).toMatch(tagData.tagSlug);
+        } else {
+          await tagPage.discardChanges(page);
+          await tagPage.listTags(page);
+          await expect(page).not.toMatch(tagData.tagSlug);
+        }
+      });
+    }
+  });
+
+  describe("mock", () => {
+    let tags = [];
+    const number = 10;
+
+    beforeAll(async () => {
+      await navigationPage.navigate(page);
+      tags = await getTagTestData(TYPE_DATA.SEMI, number);
+    });
+
+    for (let index = 0; index < number; index++) {
+      it(`Create Tag - Mocked Data #${index}`, async () => {
+        const tagData = tags[index];
+        await tagPage.createTag(page, tagData);
+
+        if (tagData.isValid) {
+          await expect(page).toMatch("Saved");
+          await tagPage.listTags(page);
+          await expect(page).toMatch(tagData.tagSlug);
+        } else {
+          await tagPage.discardChanges(page);
+          await tagPage.listTags(page);
+          await expect(page).not.toMatch(tagData.tagSlug);
+        }
       });
     }
   });
