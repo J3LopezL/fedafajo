@@ -57,10 +57,8 @@ npm install jest-puppeteer puppeteer
 
 ```
 npm run test:user
-npm run test:login
 npm run test:tag
 npm run test:post
 npm run test:page
-
+npm run test:login
 ```
-Nota: - los escenarios se pueden ejcutar mediante un script shell, mediante el comando: sh escenarios.sh
