@@ -1,6 +1,5 @@
 # Grupo de trabajo
 
-## Pruebas de extremo a extremo utilizando las herramientas Kraken y Puppeteer.
 
 | Nombre                        | email                      |
 | ----------------------------- | -------------------------- |
@@ -10,6 +9,12 @@
 | José Libardo López Lesmes     | jl.lopez77@uniandes.edu.co |
 
 Repositorio pruebas E2E MISO 2021.
+
+
+**Importante: para el trabajo desarrollado en la semana 7, favor revisar el README.md en el directorio 'Semana7'.**
+
+
+## Pruebas de extremo a extremo utilizando las herramientas Kraken y Puppeteer.
 
 ## Configuración del ambiente de ejecución
 

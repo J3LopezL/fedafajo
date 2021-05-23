@@ -1,37 +1,109 @@
 const navigationPage = require("../page-objects/navigation-page");
 const tagPage = require("../page-objects/tag-page");
-const faker = require("faker");
 const config = require("../credentials");
-const axios = require("axios");
+const { getTagTestData, TYPE_DATA } = require("../test-data");
 
-const aPrioriEntries = require("../Mock_Data.json");
-
-describe("Create Tag", () => {
-  let dynamicEntries = [];
+describe("Tag", () => {
   beforeAll(async () => {
     // Jest config
     jest.setTimeout(50000);
     await navigationPage.navigate(page);
     await navigationPage.login(page, config.user, config.password);
-    dynamicEntries = await axios.get(
-      "https://my.api.mockaroo.com/valid_tags.json?key=4a5d83e0"
-    );
   });
 
-  // for (let i = 0; i < 10; i++) {
-  //   it(`Create Valid Tag - Random Data #${i}`, async () => {
-  //     const tagData = {
-  //       tagName: faker.name.firstName(),
-  //       tagSlug: faker.lorem.slug(),
-  //       tagDescription: faker.lorem.sentence(),
-  //       tagColor: faker.internet.color().slice(1),
-  //     };
-  //     await tagPage.createTag(page, tagData);
-  //     await expect(page).toMatch("Saved");
-  //     await tagPage.listTags(page);
-  //     await expect(page).toMatch(tagData.tagSlug);
-  //   });
-  // }
+  describe("random data", () => {
+    let tags = [];
+    const number = 10;
+
+    beforeAll(async () => {
+      await navigationPage.navigate(page);
+      tags = await getTagTestData(TYPE_DATA.RANDOM, number);
+    });
+
+    for (let index = 0; index < number; index++) {
+      it(`Create Tag - Random Data #${index}`, async () => {
+        const tagData = tags[index];
+        await tagPage.createTag(page, tagData);
+
+        if (tagData.isValid) {
+          await expect(page).toMatch("Saved");
+          await tagPage.listTags(page);
+          await expect(page).toMatch(tagData.tagSlug);
+        } else {
+          await tagPage.discardChanges(page);
+          await tagPage.listTags(page);
+          await expect(page).not.toMatch(tagData.tagSlug);
+        }
+      });
+    }
+  });
+
+  describe("a priori", () => {
+    let tags = [];
+    const number = 10;
+
+    beforeAll(async () => {
+      await navigationPage.navigate(page);
+      tags = await getTagTestData(TYPE_DATA.APRIORI, number);
+    });
+
+    for (let index = 0; index < number; index++) {
+      it(`Create Tag - A Priori Data #${index}`, async () => {
+        const tagData = tags[index];
+        await tagPage.createTag(page, tagData);
+
+        if (tagData.isValid) {
+          await expect(page).toMatch("Saved");
+          await tagPage.listTags(page);
+          await expect(page).toMatch(tagData.tagSlug);
+        } else {
+          await tagPage.discardChanges(page);
+          await tagPage.listTags(page);
+          await expect(page).not.toMatch(tagData.tagSlug);
+        }
+      });
+    }
+  });
+
+  describe("mock", () => {
+    let tags = [];
+    const number = 10;
+
+    beforeAll(async () => {
+      await navigationPage.navigate(page);
+      tags = await getTagTestData(TYPE_DATA.SEMI, number);
+    });
+
+    for (let index = 0; index < number; index++) {
+      it(`Create Tag - Mocked Data #${index}`, async () => {
+        const tagData = tags[index];
+        await tagPage.createTag(page, tagData);
+
+        if (tagData.isValid) {
+          await expect(page).toMatch("Saved");
+          await tagPage.listTags(page);
+          await expect(page).toMatch(tagData.tagSlug);
+        } else {
+          await tagPage.discardChanges(page);
+          await tagPage.listTags(page);
+          await expect(page).not.toMatch(tagData.tagSlug);
+        }
+      });
+    }
+  });
+
+  // const tags = getTagTestData(type.RANDOM, 1);
+
+  // beforeAll(async () => {
+  //   // Jest config
+  //   jest.setTimeout(50000);
+  //   await navigationPage.navigate(page);
+  //   await navigationPage.login(page, config.user, config.password);
+
+  //   // dynamicEntries = await axios.get(
+  //   //   "https://my.api.mockaroo.com/valid_tags.json?key=4a5d83e0"
+  //   // );
+  // });
 
   // for (let i = 0; i < aPrioriEntries.length; i++) {
   //   it(`Create Invalid Tag - A Priori Data #${i}`, async () => {
@@ -43,15 +115,25 @@ describe("Create Tag", () => {
   //   });
   // }
 
-  for (let i = 0; i < dynamicEntries.length; i++) {
-    it(`Create Valid Tag - Dynamic Data #${i}`, async () => {
-      const tagData = dynamicEntries[i];
-      await tagPage.createTag(page, tagData);
-      await expect(page).toMatch("Saved");
-      await tagPage.listTags(page);
-      await expect(page).toMatch(tagData.tagSlug);
-    });
-  }
+  // for (let i = 0; i < dynamicEntries.length; i++) {
+  //   it(`Create Valid Tag - Dynamic Data #${i}`, async () => {
+  //     const tagData = dynamicEntries[i];
+  //     await tagPage.createTag(page, tagData);
+  //     await expect(page).toMatch("Saved");
+  //     await tagPage.listTags(page);
+  //     await expect(page).toMatch(tagData.tagSlug);
+  //   });
+  // }
+
+  // test.each(tags)(
+  //   "%s", // <-- This will cause the toString method to be called.
+  //   async (tag) => {
+  //     await tagPage.createTag(page, tag);
+  //     await expect(page).toMatch("Saved");
+  //     await tagPage.listTags(page);
+  //     await expect(page).toMatch(tagData.tagSlug);
+  //   }
+  // );
 
   // it("Create Tag with space in the name", async () => {
   //   await tagPage.createTag(page, {
