@@ -82,8 +82,16 @@ getAprioriTestPostData = async (count) => {
 
 getMockTestPostData = async (count) => {
   const testData = [];
+  const json = await axios.get(
+    "https://my.api.mockaroo.com/posts.json?key=343e4d20"
+  );
 
-  for (let index = 0; index < count; index++) {}
+  for (let index = 0; index < count; index++) {
+    const fileIndex = index % json.data.length;
+    testData.push({
+      ...json.data[fileIndex],
+    });
+  }
 
   return testData;
 };

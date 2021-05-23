@@ -11,9 +11,61 @@ describe("Post", () => {
     await navigationPage.login(page, config.user, config.password);
   });
 
-  describe("Random data", () => {
+  describe.skip("A priori", () => {
     let posts = [];
-    const number = 10;
+    const number = 5;
+
+    beforeAll(async () => {
+      await navigationPage.navigate(page);
+      posts = await getPostTestData(TYPE_DATA.APRIORI, number);
+    });
+
+    beforeEach(async () => {
+      await navigationPage.navigate(page);
+    });
+
+    for (let index = 0; index < number; index++) {
+      it(`Create Post - A Priori Data #${index}`, async () => {
+        const postData = posts[index];
+        await post.listPost(page);
+        await expect(page).toMatch("Posts");
+        await post.createPost(page, postData);
+        await post.savePost(page);
+        await post.listPost(page);
+        await expect(page).toMatch(postData.titulo);
+      });
+    }
+  });
+
+  describe("Seudo aleatorio", () => {
+    let posts = [];
+    const number = 5;
+
+    beforeAll(async () => {
+      await navigationPage.navigate(page);
+      posts = await getPostTestData(TYPE_DATA.SEMI, number);
+    });
+
+    beforeEach(async () => {
+      await navigationPage.navigate(page);
+    });
+
+    for (let index = 0; index < number; index++) {
+      it(`Create Post - Seudo aleatorio #${index}`, async () => {
+        const postData = posts[index];
+        await post.listPost(page);
+        await expect(page).toMatch("Posts");
+        await post.createPost(page, postData);
+        await post.savePost(page);
+        await post.listPost(page);
+        await expect(page).toMatch(postData.titulo);
+      });
+    }
+  });
+
+  describe.skip("Random data", () => {
+    let posts = [];
+    const number = 5;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
@@ -37,29 +89,4 @@ describe("Post", () => {
     }
   });
 
-  describe("A priori", () => {
-    let posts = [];
-    const number = 10;
-
-    beforeAll(async () => {
-      await navigationPage.navigate(page);
-      posts = await getPostTestData(TYPE_DATA.APRIORI, number);
-    });
-
-    beforeEach(async () => {
-      await navigationPage.navigate(page);
-    });
-
-    for (let index = 0; index < number; index++) {
-      it(`Create Post - A Priori Data #${index}`, async () => {
-        const postData = posts[index];
-        await post.listPost(page);
-        await expect(page).toMatch("Posts");
-        await post.createPost(page, postData);
-        await post.savePost(page);
-        await post.listPost(page);
-        await expect(page).toMatch(postData.titulo);
-      });
-    }
-  });
 });
