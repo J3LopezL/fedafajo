@@ -9,18 +9,110 @@ const TYPE_DATA = {
   RANDOM: "other",
 };
 
-getTagTestData = async (type, number) => {
+getLoginTestData = async (type, number) => {
   switch (type) {
     case TYPE_DATA.APRIORI:
-      return await getAprioriTestData(number);
+      return await getAprioriTestLoginData(number);
     case TYPE_DATA.SEMI:
-      return await getMockTestData(number);
+      return await getMockTestLoginData(number);
     default:
-      return await getRandomTestData(number);
+      return await getRandomTestLoginData(number);
   }
 };
 
-getRandomTestData = async (count) => {
+getAprioriTestLoginData = async (count) => {
+  const testData = [];
+  const jsonFile = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, "login-test-data.json")).toString()
+  );
+
+  for (let index = 0; index < count; index++) {
+    const fileIndex = index % jsonFile.length;
+    testData.push({ ...jsonFile[fileIndex] });
+  }
+
+  return testData;
+};
+
+getMockTestLoginData = async (count) => {
+  const testData = [];
+
+  for (let index = 0; index < count; index++) {}
+
+  return testData;
+};
+
+getRandomTestLoginData = async (count) => {
+  const testData = [];
+
+  for (let index = 0; index < count; index++) {
+    testData.push({
+      user: faker.lorem.word(),
+      password: faker.lorem.paragraph(),
+    });
+  }
+
+  return testData;
+};
+
+getPostTestData = async (type, number) => {
+  switch (type) {
+    case TYPE_DATA.APRIORI:
+      return await getAprioriTestPostData(number);
+    case TYPE_DATA.SEMI:
+      return await getMockTestPostData(number);
+    default:
+      return await getRandomTestPostData(number);
+  }
+};
+
+getAprioriTestPostData = async (count) => {
+  const testData = [];
+  const jsonFile = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, "post-test-data.json")).toString()
+  );
+
+  for (let index = 0; index < count; index++) {
+    const fileIndex = index % jsonFile.length;
+    testData.push({ ...jsonFile[fileIndex] });
+  }
+
+  return testData;
+};
+
+getMockTestPostData = async (count) => {
+  const testData = [];
+
+  for (let index = 0; index < count; index++) {}
+
+  return testData;
+};
+
+getRandomTestPostData = async (count) => {
+  const testData = [];
+
+  for (let index = 0; index < count; index++) {
+    testData.push({
+      titulo: faker.lorem.word(),
+      contenido: faker.lorem.paragraph(),
+    });
+  }
+
+  return testData;
+};
+
+getTagTestData = async (type, number) => {
+  switch (type) {
+    case TYPE_DATA.APRIORI:
+      return await getAprioriTestTagData(number);
+    case TYPE_DATA.SEMI:
+      return await getMockTestTagData(number);
+    default:
+      return await getRandomTestTagData(number);
+  }
+};
+
+getRandomTestTagData = async (count) => {
   const testData = [];
 
   for (let index = 0; index < count; index++) {
@@ -36,30 +128,30 @@ getRandomTestData = async (count) => {
   return testData;
 };
 
-getAprioriTestData = async (count) => {
-  const json = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, "Mock_Data.json")).toString()
+getAprioriTestTagData = async (count) => {
+  const testData = [];
+  const jsonFile = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, "tag-test-data.json")).toString()
   );
 
-  const jsonElements = json.length;
-
-  const testData = [];
   for (let index = 0; index < count; index++) {
-    testData.push({ ...json[index], isValid: false });
+    const fileIndex = index % jsonFile.length;
+    testData.push({ ...jsonFile[fileIndex] });
   }
 
   return testData;
 };
 
-getMockTestData = async (count) => {
+getMockTestTagData = async (count) => {
+  const testData = [];
   const json = await axios.get(
     "https://my.api.mockaroo.com/valid_tags.json?key=4a5d83e0"
   );
 
-  const testData = [];
   for (let index = 0; index < count; index++) {
+    const fileIndex = index % jsonFile.length;
     testData.push({
-      ...json.data[index],
+      ...json.data[fileIndex],
       tagColor: json.data[index].tagColor.slice(1),
       isValid: true,
     });
