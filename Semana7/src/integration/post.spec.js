@@ -13,7 +13,7 @@ describe("Post", () => {
 
   describe.skip("A priori", () => {
     let posts = [];
-    const number = 5;
+    const number = 10;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
@@ -39,7 +39,7 @@ describe("Post", () => {
 
   describe("Seudo aleatorio", () => {
     let posts = [];
-    const number = 5;
+    const number = 10;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
@@ -65,7 +65,7 @@ describe("Post", () => {
 
   describe.skip("Random data", () => {
     let posts = [];
-    const number = 5;
+    const number = 10;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
@@ -88,5 +88,4 @@ describe("Post", () => {
       });
     }
   });
-
 });

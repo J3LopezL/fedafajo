@@ -14,7 +14,7 @@ describe("Login", () => {
 
   describe("a priori", () => {
     let users = [];
-    const number = 1;
+    const number = 10;
 
     beforeAll(async () => {
       users = await getLoginTestData(TYPE_DATA.APRIORI, number);
@@ -37,7 +37,7 @@ describe("Login", () => {
 
   describe("faker", () => {
     let users = [];
-    const number = 1;
+    const number = 10;
 
     beforeAll(async () => {
       users = await getLoginTestData(TYPE_DATA.RANDOM, number);
@@ -62,7 +62,7 @@ describe("Login", () => {
 
   describe("faker", () => {
     let users = [];
-    const number = 1;
+    const number = 10;
 
     beforeAll(async () => {
       users = await getLoginTestData(TYPE_DATA.RANDOM, number);

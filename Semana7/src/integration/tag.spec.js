@@ -40,7 +40,7 @@ describe("Tag", () => {
 
   describe("mock", () => {
     let tags = [];
-    const number = 1;
+    const number = 10;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
@@ -91,5 +91,4 @@ describe("Tag", () => {
       });
     }
   });
-  
 });

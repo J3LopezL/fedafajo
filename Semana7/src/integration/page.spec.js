@@ -14,7 +14,7 @@ describe("Page", () => {
 
   describe.skip("a priori", () => {
     let pages = [];
-    const number = 3;
+    const number = 10;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
@@ -46,7 +46,7 @@ describe("Page", () => {
 
   describe.only("mock", () => {
     let pages = [];
-    const number = 1;
+    const number = 10;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
