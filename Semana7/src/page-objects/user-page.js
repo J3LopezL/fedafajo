@@ -11,17 +11,16 @@ async function createUser(
     await new Promise((r) => setTimeout(r, 2000));
   }
   async function homePage(page) {
-    await page.click('a[href="#/site/"]');
+    await page.click('a[href="#/signin"]');
     await new Promise((r) => setTimeout(r, 2000));
   }
 
   async function clicsLogin(page) {
-    for(let i = 0; i < 10; i++ ) {
+    for(let i = 0; i < 5; i++ ) {
       await page.click('button[id="ember12"]');
     };
     await new Promise((r) => setTimeout(r, 2000));
   }
-
   module.exports = {
     createUser,
     homePage,

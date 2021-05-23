@@ -1,12 +1,11 @@
 const navigationPage = require("../page-objects/navigation-page");
 const userPage = require("../page-objects/user-page");
 const config = require("../loginData");
-let validU = "";
 
-describe("Create user", () => {
+describe("Manger user Ghost", () => {
   beforeEach(async () => {
-    jest.setTimeout(20000);
     await navigationPage.navigate(page);
+    jest.setTimeout(20000);
   });
 
   for (let i=0; i < config.length; i++) {
@@ -25,8 +24,7 @@ describe("Create user", () => {
             blogPassword: config[i].password,
           });
         await expect(page).toMatch(`${validU}`);
-        await navigationPage.logout(page);
       });
-    }catch(e) { console.log(e)}
+    }catch(e) {}
   }
 });
