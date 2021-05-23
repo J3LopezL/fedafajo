@@ -11,33 +11,6 @@ describe("Tag", () => {
     await navigationPage.login(page, config.user, config.password);
   });
 
-  describe("random data", () => {
-    let tags = [];
-    const number = 10;
-
-    beforeAll(async () => {
-      await navigationPage.navigate(page);
-      tags = await getTagTestData(TYPE_DATA.RANDOM, number);
-    });
-
-    for (let index = 0; index < number; index++) {
-      it(`Create Tag - Random Data #${index}`, async () => {
-        const tagData = tags[index];
-        await tagPage.createTag(page, tagData);
-
-        if (tagData.isValid) {
-          await expect(page).toMatch("Saved");
-          await tagPage.listTags(page);
-          await expect(page).toMatch(tagData.tagSlug);
-        } else {
-          await tagPage.discardChanges(page);
-          await tagPage.listTags(page);
-          await expect(page).not.toMatch(tagData.tagSlug);
-        }
-      });
-    }
-  });
-
   describe("a priori", () => {
     let tags = [];
     const number = 10;
@@ -91,4 +64,32 @@ describe("Tag", () => {
       });
     }
   });
+
+  describe("random data", () => {
+    let tags = [];
+    const number = 10;
+
+    beforeAll(async () => {
+      await navigationPage.navigate(page);
+      tags = await getTagTestData(TYPE_DATA.RANDOM, number);
+    });
+
+    for (let index = 0; index < number; index++) {
+      it(`Create Tag - Random Data #${index}`, async () => {
+        const tagData = tags[index];
+        await tagPage.createTag(page, tagData);
+
+        if (tagData.isValid) {
+          await expect(page).toMatch("Saved");
+          await tagPage.listTags(page);
+          await expect(page).toMatch(tagData.tagSlug);
+        } else {
+          await tagPage.discardChanges(page);
+          await tagPage.listTags(page);
+          await expect(page).not.toMatch(tagData.tagSlug);
+        }
+      });
+    }
+  });
+  
 });
