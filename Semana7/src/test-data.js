@@ -87,7 +87,7 @@ getMockTestPostData = async (count) => {
   );
 
   for (let index = 0; index < count; index++) {
-    const fileIndex = index % jsonFile.length;
+    const fileIndex = index % json.data.length;
     testData.push({
       ...json.data[fileIndex],
     });
