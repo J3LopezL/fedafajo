@@ -52,15 +52,17 @@ npm run test:login
 
 ```
 
-### Nota 1: El comando `npm run test:user`, anteriormente especificado como paso de ejecución, se encarga de probar el flujo de creación de usuario con varios datos y al final de este creará el usuario utilizado por las demás pruebas. Si al ejecutar los demás comando se presenta un problema de inicio de sesión realizar el siguiente procedimiento para la creación del usuario:
+### Nota 1: 
+El comando `npm run test:user`, anteriormente especificado como paso de ejecución, se encarga de probar el flujo de creación de usuario con varios datos y al final de este creará el usuario utilizado por las demás pruebas. Si al ejecutar los demás comando se presenta un problema de inicio de sesión realizar el siguiente procedimiento para la creación del usuario:
 
 Abrir un navegador con la URL http://localhost:3002/ghost y crear un usuario inicial con los siguientes parametros:
 
 - E-mail: test@ghost.com
 - Password: 123456abc*
 
-### Nota 2: En la versión 3.42.5 se encontró una incidencia al momento de cerrar sesión al finalizar cada escenario de pruebas que cerraba abruptamente la ejecución de la prueba. Se creó la configuración para cada funcionalidad para que sea ejecutada independientemente de la siguiente forma:
+### Nota 2: 
 
+En la versión 3.42.5 se encontró una incidencia al momento de cerrar sesión al finalizar cada escenario de pruebas que cerraba abruptamente la ejecución de la prueba. Se creó la configuración para cada funcionalidad para que sea ejecutada independientemente de la siguiente forma:
 
 #### [Funcionalidades](https://github.com/J3LopezL/fedafajo/wiki/FuncionalidadesProbadas)
 #### [Escenarios](https://github.com/J3LopezL/fedafajo/wiki/Escenarios-pruebas)
