@@ -5,10 +5,15 @@ async function listPost(page) {
 
 async function createPost(page, { titulo, contenido }) {
   await page.click('a[href="#/editor/post/"]');
+  await new Promise((r) => setTimeout(r, 500));
   await page.click("textarea", { clickCount: 3 });
+  await new Promise((r) => setTimeout(r, 500));
   await page.type("textarea", titulo);
+  await new Promise((r) => setTimeout(r, 500));
   await page.keyboard.press("Enter");
+  await new Promise((r) => setTimeout(r, 500));
   await page.type("p", contenido);
+  await new Promise((r) => setTimeout(r, 500));
   await page.keyboard.press("Enter");
   await new Promise((r) => setTimeout(r, 2000));
 }

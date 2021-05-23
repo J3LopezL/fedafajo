@@ -11,18 +11,17 @@ describe("Post", () => {
     await navigationPage.login(page, config.user, config.password);
   });
 
-  afterEach(async () => {
-    jest.setTimeout(20000);
-    await navigationPage.navigate(page);
-  });
-
   describe("Random data", () => {
     let posts = [];
-    const number = 2;
+    const number = 10;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
       posts = await getPostTestData(TYPE_DATA.RANDOM, number);
+    });
+
+    beforeEach(async () => {
+      await navigationPage.navigate(page);
     });
 
     for (let index = 0; index < number; index++) {
@@ -40,15 +39,19 @@ describe("Post", () => {
 
   describe("A priori", () => {
     let posts = [];
-    const number = 5;
+    const number = 10;
 
     beforeAll(async () => {
       await navigationPage.navigate(page);
       posts = await getPostTestData(TYPE_DATA.APRIORI, number);
     });
 
+    beforeEach(async () => {
+      await navigationPage.navigate(page);
+    });
+
     for (let index = 0; index < number; index++) {
-      it(`Create Post - Random Data #${index}`, async () => {
+      it(`Create Post - A Priori Data #${index}`, async () => {
         const postData = posts[index];
         await post.listPost(page);
         await expect(page).toMatch("Posts");
