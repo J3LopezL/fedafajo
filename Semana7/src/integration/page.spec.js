@@ -12,7 +12,7 @@ describe("Page", () => {
     await navigationPage.login(page, config.user, config.password);
   });
 
-  describe.skip("random", () => {
+  describe("random", () => {
     let pages = [];
     const number = 10;
 
@@ -44,7 +44,7 @@ describe("Page", () => {
     }
   });
 
-  describe.skip("a priori", () => {
+  describe("a priori", () => {
     let pages = [];
     const number = 3;
 
@@ -76,7 +76,7 @@ describe("Page", () => {
     }
   });
 
-  describe.only("mock", () => {
+  describe("mock", () => {
     let pages = [];
     const number = 1;
 

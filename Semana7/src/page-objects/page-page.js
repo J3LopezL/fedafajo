@@ -1,47 +1,17 @@
-addContent = async (page, pageTitle, pageContent) => {
-  if (pageTitle) {
-    await page.waitForSelector(
-      'textarea[class="gh-editor-title ember-text-area gh-input ember-view"]',
-      { visible: true }
-    );
-
-    await page.click(
-      'textarea[class="gh-editor-title ember-text-area gh-input ember-view"]',
-      { delay: 500 }
-    );
-
-    await page.waitForTimeout(500);
-
-    await page.type(
-      'textarea[class="gh-editor-title ember-text-area gh-input ember-view"]',
-      pageTitle,
-      { delay: 50 }
-    );
-    await page.waitForTimeout(500);
-  }
-
-  if (pageContent) {
-    await page.waitForSelector(
-      "div[class='koenig-editor__editor __mobiledoc-editor __has-no-content']",
-      { visible: true }
-    );
-    await page.click(
-      "div[class='koenig-editor__editor __mobiledoc-editor __has-no-content']",
-      { delay: 500 }
-    );
-    await page.waitForTimeout(500);
-
-    await page.waitForSelector(
-      "div[class='koenig-editor__editor __mobiledoc-editor __has-no-content']",
-      { visible: true }
-    );
-    await page.type(
-      "div[class='koenig-editor__editor __mobiledoc-editor __has-no-content']",
-      pageContent,
-      { delay: 50 }
-    );
-    await page.waitForTimeout(500);
-  }
+addContent = async (page, title, content) => {
+  await page.click("textarea", { clickCount: 3 });
+  await new Promise((r) => setTimeout(r, 500));
+  await page.type("textarea", title);
+  await new Promise((r) => setTimeout(r, 500));
+  await page.keyboard.press("Enter");
+  await new Promise((r) => setTimeout(r, 500));
+  await page.type(
+    "div[class='koenig-editor__editor __mobiledoc-editor __has-no-content']",
+    content
+  );
+  await new Promise((r) => setTimeout(r, 500));
+  await page.keyboard.press("Enter");
+  await new Promise((r) => setTimeout(r, 2000));
 };
 
 createPage = async (page) => {
