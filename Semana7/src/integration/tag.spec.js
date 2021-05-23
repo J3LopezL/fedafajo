@@ -11,7 +11,7 @@ describe("Tag", () => {
     await navigationPage.login(page, config.user, config.password);
   });
 
-  describe.skip("random data", () => {
+  describe("random data", () => {
     let tags = [];
     const number = 10;
 
@@ -38,7 +38,7 @@ describe("Tag", () => {
     }
   });
 
-  describe.only("a priori", () => {
+  describe("a priori", () => {
     let tags = [];
     const number = 10;
 
@@ -65,7 +65,7 @@ describe("Tag", () => {
     }
   });
 
-  describe.skip("mock", () => {
+  describe("mock", () => {
     let tags = [];
     const number = 1;
 
