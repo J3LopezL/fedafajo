@@ -24,14 +24,13 @@ getRandomTestData = async (count) => {
   const testData = [];
 
   for (let index = 0; index < count; index++) {
-    testData.push([
-      {
-        tagName: faker.lorem.word(5),
-        tagColor: faker.datatype.hexaDecimal(6),
-        tagSlug: faker.lorem.slug(10),
-        tagDescription: faker.lorem.sentence(),
-      },
-    ]);
+    testData.push({
+      tagName: faker.lorem.word(5),
+      tagColor: faker.datatype.hexaDecimal(6),
+      tagSlug: faker.lorem.slug(10),
+      tagDescription: faker.lorem.sentence(),
+      isValid: false,
+    });
   }
 
   return testData;
@@ -46,7 +45,7 @@ getAprioriTestData = async (count) => {
 
   const testData = [];
   for (let index = 0; index < count; index++) {
-    testData.push([`prueba ${index}`, json[index]]);
+    testData.push({ ...json[index], isValid: false });
   }
 
   return testData;
@@ -59,7 +58,11 @@ getMockTestData = async (count) => {
 
   const testData = [];
   for (let index = 0; index < count; index++) {
-    testData.push([`prueba ${index}`, json.data[index]]);
+    testData.push({
+      ...json.data[index],
+      tagColor: json.data[index].tagColor.slice(1),
+      isValid: true,
+    });
   }
 
   return testData;
