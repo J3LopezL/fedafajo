@@ -160,9 +160,64 @@ getMockTestTagData = async (count) => {
   return testData;
 };
 
+getPageTestData = async (type, number) => {
+  switch (type) {
+    case TYPE_DATA.APRIORI:
+      return await getAprioriPageTestData(number);
+    case TYPE_DATA.SEMI:
+      return await getMockPageTestData(number);
+    default:
+      return await getRandomPageTestData(number);
+  }
+};
+
+getMockPageTestData = async (count) => {
+  const testData = [];
+  const jsonFile = await axios.get(
+    "https://my.api.mockaroo.com/page.json?key=343e4d20"
+  );
+
+  for (let index = 0; index < count; index++) {
+    const fileIndex = index % jsonFile.data.length;
+    testData.push({
+      ...jsonFile.data[fileIndex],
+    });
+  }
+
+  return testData;
+};
+
+getAprioriPageTestData = async (count) => {
+  const testData = [];
+  const jsonFile = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, "page-test-data.json")).toString()
+  );
+
+  for (let index = 0; index < count; index++) {
+    const fileIndex = index % jsonFile.length;
+    testData.push({ ...jsonFile[fileIndex] });
+  }
+
+  return testData;
+};
+
+getRandomPageTestData = async (count) => {
+  const testData = [];
+
+  for (let index = 0; index < count; index++) {
+    testData.push({
+      title: faker.lorem.word(),
+      content: faker.lorem.paragraph(),
+    });
+  }
+
+  return testData;
+};
+
 module.exports = {
   getTagTestData,
   getLoginTestData,
   getPostTestData,
+  getPageTestData,
   TYPE_DATA,
 };
