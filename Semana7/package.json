@@ -10,9 +10,7 @@
     "test:login": "jest login.spec.js",
     "test:page": "jest page.spec.js",
     "test:tag": "jest tag.spec.js",
-    "test:post": "jest post.spec.js",
-    "test:edit": "jest edit.spec.js",
-    "test:crear": "jest a.spec.js"
+    "test:post": "jest post.spec.js"
   },
   "jest": {
     "preset": "jest-puppeteer"
