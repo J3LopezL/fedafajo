@@ -157,7 +157,7 @@ getMockTestTagData = async (count) => {
   );
 
   for (let index = 0; index < count; index++) {
-    const fileIndex = index % jsonFile.length;
+    const fileIndex = index % jsonFile.data.length;
     testData.push({
       ...json.data[fileIndex],
       tagColor: json.data[index].tagColor.slice(1),
