@@ -17,8 +17,8 @@ describe("Create Post random data", () => {
   });
 
   for (let i=0; i < 10; i++) {
-    const myTitle = faker.random.word();
-    const myDescription = faker.random.words();
+    const myTitle = faker.name.findName();
+    const myDescription = faker.lorem.lines();
     let identify = "Create post " + myTitle;
     it(identify, async () => {
       await post.listPost(page);

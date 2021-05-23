@@ -21,6 +21,8 @@ async function selectPost(page) {
 async function updatePost(page) {
   await page.click("div.gh-publishmenu.ember-view");
   await page.click("button.gh-btn-blue");
+  if(await page.waitForSelector('button.gh-btn-red'))
+    {await page.click('button.gh-btn-red');}
   await new Promise((r) => setTimeout(r, 2000));
 }
 

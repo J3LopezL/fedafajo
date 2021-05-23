@@ -26,7 +26,6 @@ describe("Create post positive with stage", () => {
         await post.savePost(page);
         await post.listPost(page);
         await expect(page).toMatch(info[i].Name);
-        jest.setTimeout(20000);
       });
     }catch(e) { console.log(e)}
   }
