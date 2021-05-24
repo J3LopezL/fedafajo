@@ -14,7 +14,7 @@ describe("Login", () => {
 
   describe("a priori", () => {
     let users = [];
-    const number = 10;
+    const number = 5;
 
     beforeAll(async () => {
       users = await getLoginTestData(TYPE_DATA.APRIORI, number);
@@ -28,16 +28,15 @@ describe("Login", () => {
       let identify = "Login loginData " + config[index].user;
       it(`Login loginData #${index}`, async () => {
         const userData = users[index];
-
         await navigationPage.login(page, userData.user, userData.password);
         await expect(page).toMatch("Please fill out the form to sign in. ");
       });
     }
   });
 
-  describe("faker", () => {
+  describe("faker mock", () => {
     let users = [];
-    const number = 10;
+    const number = 5;
 
     beforeAll(async () => {
       users = await getLoginTestData(TYPE_DATA.RANDOM, number);
@@ -60,10 +59,9 @@ describe("Login", () => {
     }
   });
 
-  describe("faker", () => {
+  describe('faker test@ghost.com', () => {
     let users = [];
     const number = 10;
-
     beforeAll(async () => {
       users = await getLoginTestData(TYPE_DATA.RANDOM, number);
     });
@@ -76,9 +74,19 @@ describe("Login", () => {
       it(`Login faker random #${index}`, async () => {
         const userData = users[index];
         const email = "test@ghost.com";
-
         await navigationPage.login(page, email, userData.password);
-        await expect(page).toMatch(/Your password.*/);
+        let myError =  await page.evaluate(()=>{
+          const p = document.querySelector('p');
+          return p.innerText;
+        });
+        console.log(myError, myError.length);
+        jest.setTimeout(10000);
+        if (myError.length == 28) {
+          await expect(page).toMatch("Your password is incorrect. ") }
+        else {
+          await expect(page).toMatch("Too many login attempts. ")
+        }
+        jest.setTimeout(10000);
       });
     }
   });
