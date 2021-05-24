@@ -10,10 +10,6 @@
 
 Repositorio pruebas E2E MISO 2021.
 
-**                                                                                                                                   **
-**       **Importante: para el trabajo desarrollado en la semana 7, favor revisar el README.md en el directorio 'Semana7'.**         **
-**                                                                                                                                   **
-
 ## Pruebas de extremo a extremo utilizando las herramientas Kraken y Puppeteer.
 
 ## Configuración del ambiente de ejecución
@@ -27,20 +23,8 @@ Prerequisitos:
 # 1. Configuración de Ghost
 
 - Abrir una terminal y ejecutar los siguientes comandos:
-  - `docker run -d --name ghost3.3.0 -e url=http://localhost:3001 -p 3001:2368 ghost:3.3.0`, contenedor con Ghost v 3.3.0
   - `docker run -d --name ghost3.42.5 -e url=http://localhost:3002 -p 3002:2368 ghost:3.42.5`, contenedor con Ghost v 3.42.5
-   - Tener en cuenta que los puertos `3001` y `3002` de su maquina local no se encuentren en uso.
-
-- Abrir un navegador con la URL `http://localhost:3001/ghost` y crear un usuario inicial con los siguientes parametros:
- - E-mail: `test@ghost.com`
- - Password: `123456abc*`
-- Repetir los pasos anteriores para el sitio ubicado en `http://localhost:3002/ghost`
-
-o
-
-- Abrir el directorio que contiene las pruebas (`fedafajo/Puppeteer-3.3.0/src/integration`) y habiltar la prueba `a.spe.js` renombrandola por `a.espec.js`, abra una terminal y ejecute el comando: `npm run test:crear`. El cual creará el usuario.
-
-- Abrir el directorio que contiene las pruebas (`fedafajo/Puppeteer-3.42.5/src/integration`) y habiltar la prueba `a.spe.js` renombrandola por `a.espec.js`, abra una terminal y ejecute el comando: `npm run test:crear`. El cual creará el usuario.
+   - Tener en cuenta que el puerto `3002` de su maquina local no se encuentre en uso.
 
 ```
 Comando para docker, pueden requirir privilegios:
@@ -56,56 +40,30 @@ Comando para docker, pueden requirir privilegios:
 
 # 2. Configuración y ejecución de las pruebas en Puppeteer
 
-Las pruebas se encuentran en el diretorio fedafajo. Para ejecutar la suite de pruebas de Puppeteer, es necesario localizar la terminal en el directorio *fedafajo/Puppeteer-3.3.0* y *fedafajo/Puppeteer-3.42.5* . Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas: 
+Las pruebas se encuentran en el diretorio fedafajo. Para ejecutar la suite de pruebas de Puppeteer, es necesario localizar la terminal en el directorio *fedafajo/Semana7*. Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas: 
 
 ```
 npm install
-npm test
-
-Los resultados deben aparecer en la carpeta Results del directorio fedafajo.
-```
-
-### Nota: En la versión 3.3.0 ejecutar el comando `npm test` ejecutará las pruebas y creará las imagenes para los escenarios que se encuentran configurados. En la versión 3.42.5 se encontró una incidencia al momento de cerrar sesión al finalizar cada escenario de pruebas que cerraba abruptamente la ejecución de la prueba. Se creó la configuración para cada funcionalidad para que sea ejecutada independientemente de la siguiente forma:
-
-```
 npm run test:user
 npm run test:tag
-npm run test:page
 npm run test:post
-npm run test:edit
+npm run test:page
+npm run test:login
 
 ```
 
-# 3. Configuración y ejecución de las pruebas en Kraken
+### Nota 1: 
+El comando `npm run test:user`, anteriormente especificado como paso de ejecución, se encarga de probar el flujo de creación de usuario con varios datos y al final de este creará el usuario utilizado por las demás pruebas. Si al ejecutar los demás comando se presenta un problema de inicio de sesión realizar el siguiente procedimiento para la creación del usuario:
 
-```
-Debe estar en ejecución el contendor.
-Debe estar creado el usuario administrador en la correspondiente versión de Ghost.
-```
+Abrir un navegador con la URL http://localhost:3002/ghost y crear un usuario inicial con los siguientes parametros:
 
-Las pruebas se encuentran en el diretorio fedafajo. Para ejecutar la suite de pruebas de Kraken, es necesario localizar la terminal en el directorio *fedafajo/Kraken3.3.0* y *fedafajo/Kraken3.42.5*. Una vez en este punto, se deben ejecutar los siguientes comandos para desplegar los escenarios de pruebas:
+- E-mail: test@ghost.com
+- Password: 123456abc*
 
-```
-export ANDROID_HOME="/usr/lib/android-sdk/"
-export PATH="${PATH}:${ANDROID_HOME}tools/:${ANDROID_HOME}platform-tools/"
+### Nota 2: 
 
-Las pruebas se corren con el comando:
-
-kraken-mobile run
-
-Los resultados deben aparecer en la carpeta resports del directorio fedafajo.
-
-Si no funciona lo anterior...
-
-Dentro del repositorio en la ruta de `/reports` puede encontrar la ejecución de reportes previamente ejecutados.
-
-TODO: ejecutar los comandos de preparación en Kraken suministrados para el curso.
-```
-
-# 4. Resemble
-
-Haciendo uso del terminal abrir la carpeta `Resemble` y ejecutar el comando `npm install`, al finalizar ejecutar el comando `node index` para la generación del reporte. El reporte se puede ver en la ruta: `./Resemble/reports/{HoraEjecución}/report.html`
-
+En la versión 3.42.5 se encontró una incidencia al momento de cerrar sesión al finalizar cada escenario de pruebas que cerraba abruptamente la ejecución de la prueba. Se creó la configuración para cada funcionalidad para que sea ejecutada independientemente de la siguiente forma:
 
 #### [Funcionalidades](https://github.com/J3LopezL/fedafajo/wiki/FuncionalidadesProbadas)
 #### [Escenarios](https://github.com/J3LopezL/fedafajo/wiki/Escenarios-pruebas)
+#### [120 Casos de prueba](https://github.com/J3LopezL/fedafajo/wiki/120-Escenarios)

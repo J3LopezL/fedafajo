@@ -6,7 +6,7 @@ const { getTagTestData, TYPE_DATA } = require("../test-data");
 describe("Tag", () => {
   beforeAll(async () => {
     // Jest config
-    jest.setTimeout(50000);
+    jest.setTimeout(80000);
     await navigationPage.navigate(page);
     await navigationPage.login(page, config.user, config.password);
   });
