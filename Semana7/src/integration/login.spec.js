@@ -79,7 +79,6 @@ describe("Login", () => {
           const p = document.querySelector('p');
           return p.innerText;
         });
-        console.log(myError, myError.length);
         jest.setTimeout(10000);
         if (myError.length == 28) {
           await expect(page).toMatch("Your password is incorrect. ") }
