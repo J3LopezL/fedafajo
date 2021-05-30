@@ -12,7 +12,7 @@ Repositorio Pruebas Automatizadas de Software MISO 2021.
 
 # Trabajo final.
 
-1. [Estrategia de pruebas]()
+1. [Estrategia de pruebas](https://uniandes-my.sharepoint.com/:w:/r/personal/f_bernal_uniandes_edu_co/Documents/Entrega%20Final/Entrega%20Final/Estrategia%20de%20Pruebas.docx?d=w2c4fbbdad4ff4ae88c311c122d71114c&csf=1&web=1&e=KWTmww)
 2. [Inventario de Pruebas Exploratorias](https://uniandes-my.sharepoint.com/:x:/r/personal/f_bernal_uniandes_edu_co/Documents/Entrega%20Final/Entrega%20Final/Inventario%20Pruebas%20Exploratorias.xlsx?d=w88a092be58ad4931a20e928955a3f6de&csf=1&web=1&e=QNYnhh)
 3. Código para el Desarrollo de Pruebas.
 - Las pruebas exploratorias se realizaron en forma manual.
