@@ -1,5 +1,5 @@
 async function navigate(page) {
-  await page.goto("http://localhost:3002/ghost");
+  await page.goto("http://localhost:3009/ghost");
   await new Promise((r) => setTimeout(r, 2000));
 }
 
