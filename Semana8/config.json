@@ -1,0 +1,15 @@
+{
+  "url": "http://localhost:3002/ghost/",
+  "headless": true,
+  "depthLevels": 3,
+  "inputValues": true,
+  "values": {
+    "blog-title": "Ghost",
+    "name": "Test Ghost",
+    "email": "test@ghost.com",
+    "password": "123456abc*",
+    "ember8": "test@ghost.com",
+    "ember10": "123456abc*"
+  },
+  "browsers": ["chromium"]
+}
