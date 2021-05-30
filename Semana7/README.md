@@ -17,7 +17,7 @@ Repositorio pruebas E2E MISO 2021.
 Prerequisitos:
 
 - Instalar la última versión de Docker desde https://www.docker.com/get-started
-- Si ya tiene instalado Docker, verificar que no tenga un contenedor ejecutando en el puerto `3002`, de ser así detenerlo o eliminarlo.
+- Si ya tiene instalado Docker, verificar que no tenga un contenedor ejecutando en el puerto `3009`, de ser así detenerlo o eliminarlo.
 
 ## Clone este repositorio en su equipo.
 
@@ -25,13 +25,11 @@ Prerequisitos:
 
 - Abrir una terminal y ejecutar los siguientes comandos (se recomida utilizar Ubuntu):
 
-  - `docker run -d --name ghost -e url=http://localhost:3002 -p 3002:2368 ghost:3.42.5`, contenedor con Ghost versión 3.42.5
-  - Tenga en cuenta que esta configuración ejecuta una instalación de Ghost 3.42.5 desde cero en el puerto `3002` de su maquina local.
+  - `docker run -d --name ghostf -e url=http://localhost:3009 -p 3009:2368 ghost:3.42.5`, contenedor con Ghost versión 3.42.5
+  - Tenga en cuenta que esta configuración ejecuta una instalación de Ghost 3.42.5 desde cero en el puerto `3009` de su maquina local.
 
 
-- En la terminal, sobre el directroior (`fedafajo/Semana7/`) haga la instalación de los modulos de jest y puppeteer:
-    
-    - npm install jest-puppeteer puppeteer
+- En la terminal, sobre el directorio (`fedafajo/Semana7/`) haga la instalación de los modulos de jest y puppeteer.
 
 ```
 Comando para docker, el linux necesitan privilegios (sudo):
