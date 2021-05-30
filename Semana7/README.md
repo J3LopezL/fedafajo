@@ -33,12 +33,10 @@ Prerequisitos:
 
 ```
 Comando para docker, el linux necesitan privilegios (sudo):
-
-- Instalar contenedor con Ghost: sudo docker run -d --name ghost -e url=http://localhost:3002 -p 3002:2368 ghost:3.42.5
-- Detener contenedor: sudo docker stop ghost
-- Reiniciar el contenedor: sudo docker start ghost
-- Borrar el contenedor, debe estar detenido: sudo docker rm ghost
 - Ver contenedores en ejecución: sudo docker ps -a
+- Detener contenedor: sudo docker stop name
+- Reiniciar el contenedor: sudo docker start name
+- Borrar el contenedor, debe estar detenido: sudo docker rm name
 ```
 
 ### Nota: El contendedor debe estar en ejecución al momento de realizar las pruebas.
@@ -60,3 +58,4 @@ npm run test:post
 npm run test:page
 npm run test:login
 ```
+- Los resultados se veran reflejados en la consola.
