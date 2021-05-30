@@ -15,9 +15,8 @@ Las pruebas las corre utilizando el comando: `npm test`.
 4. Ingrese a la carpeta fedafajo/Puppeteer-3.42.5 y ejecute los siguientes comandos: `npm install jest-puppeteer puppeteer` y `npm install`.<br>
 Debe crear un usuario en Ghost con los siguientes datos: user: test@ghost.com y password: 123456abc*.<br>
 Las pruebas las corre utilizando el comando: `npm test`.
-5. Durante la ejecución de las pruebas se realizara la captura de las imagenes que seran guardaas dentro de esta carpeta en la subcarpeta results.
-6. 
-```
-npm install resemblejs
-node index.js
-```
+5. Durante la ejecución de las pruebas se realizará la captura de las imágenes que serán guardaas dentro de la carpeta Results del repositorio.
+6. En la carpeta fedafajo/Resemble, ejecute los siguientes comandos: `npm install resemblejs` y `node index.js`.<br>
+7. El comando node index.js ejecuta las comparaciones de las imágenes tomadas de las dos versiones de Ghost y guarda el resultado en la carpeta Comparison.
+8. El reporte se puede observar en la carpeta Resemble, subcarpetas reports,el nombre de la carpeta del reporte corresponde a la estampa de tiempo.
+9. Abra el archivo report.html en el navegador de su preferencia y prodrá observar los resultados obtenidos.
